@@ -5,70 +5,91 @@ import {
   Users,
   Clock,
   MapPin,
-  CheckCircle2,
-  ArrowRight,
+  Check,
+  ArrowUpRight,
   Phone,
   Shield,
   Sparkles,
   Calendar,
   ExternalLink,
-  Award,
   Zap,
+  ChevronRight,
+  Building2,
+  Menu,
+  X,
 } from 'lucide-react';
 
 const CT_CONFIG = {
   nome: 'CT ZHN',
-  subtitulo: 'CENTRO DE TREINAMENTO • PAULÍNIA',
   whatsapp: '5519997014081',
   whatsappDisplay: '(19) 99701-4081',
   instagram: 'https://instagram.com/ctzhnpaulinia',
-  endereco: 'Av. Paulista, 609 - São Luiz, Paulínia - SP (CEP 13145-040)',
+  endereco: 'Av. Paulista, 609 - São Luiz, Paulínia - SP',
+  cep: 'CEP 13145-040',
   horarioSemana: 'Seg a Sex: 04h30 às 24h',
   horarioFds: 'Sáb e Dom: 07h às 17h',
 };
 
 const MODALIDADES = [
   {
-    titulo: 'Musculação Completa',
+    num: '01',
+    titulo: 'Musculação de Alta Performance',
     descricao:
-      'Equipamentos de última geração em um espaço amplo de +2.000m² com acompanhamento profissional do iniciante ao avançado.',
+      'Equipamentos biomecânicos de última geração distribuídos em mais de 2.000m² com instrutores presentes o tempo todo.',
     icon: Dumbbell,
     tag: 'Área Principal',
+    imagem:
+      'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=900&q=80',
   },
   {
+    num: '02',
     titulo: 'Cross Training Híbrido',
     descricao:
-      'Treinos intensos de força, resistência e condicionamento metabólico com turmas pela manhã e à noite.',
+      'Treinos metabólicos e de força explosiva com turmas de manhã e à noite para levar seu condicionamento ao limite.',
     icon: Flame,
     tag: 'Alta Intensidade',
+    imagem:
+      'https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=900&q=80',
   },
   {
-    titulo: 'Danças, FitDance & Ritbox',
-    descricao:
-      'Aulas cheias de ritmo, energia e alto gasto calórico em salas exclusivas e climatizadas.',
-    icon: Zap,
-    tag: 'Incluso no Plano',
-  },
-  {
-    titulo: 'Spinning / Bike',
-    descricao:
-      'Treinos cardiovasculares dinâmicos para acelerar seus resultados e elevar sua resistência.',
-    icon: Users,
-    tag: 'Incluso no Plano',
-  },
-  {
+    num: '03',
     titulo: 'Lutas & Artes Marciais',
     descricao:
-      'Muay Thai, Jiu-Jitsu Adulto e Jiu-Jitsu Kids unindo técnica, disciplina, defesa pessoal e condicionamento.',
+      'Muay Thai, Jiu-Jitsu Adulto e Jiu-Jitsu Kids em tatame profissional. Técnica, disciplina e defesa pessoal.',
     icon: Shield,
-    tag: 'Adulto e Kids',
+    tag: 'Adulto & Kids',
+    imagem:
+      'https://images.unsplash.com/photo-1555597673-b21d5c935865?auto=format&fit=crop&w=900&q=80',
   },
   {
+    num: '04',
+    titulo: 'FitDance, Ritbox & Danças',
+    descricao:
+      'Salas exclusivas com som e iluminação de alto impacto para você queimar calorias com energia máxima.',
+    icon: Zap,
+    tag: 'Incluso no Plano',
+    imagem:
+      'https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    num: '05',
+    titulo: 'Spinning / Bike Indoor',
+    descricao:
+      'Aulas dinâmicas de ciclismo indoor para acelerar o metabolismo, fortalecer membros inferiores e ganhar fôlego.',
+    icon: Users,
+    tag: 'Incluso no Plano',
+    imagem:
+      'https://images.unsplash.com/photo-1591741535018-d042766c62eb?auto=format&fit=crop&w=900&q=80',
+  },
+  {
+    num: '06',
     titulo: 'Pilates Solo',
     descricao:
-      'Fortalecimento do core, postura, respiração, alongamento e consciência corporal para máxima qualidade de vida.',
+      'Controle postural, respiração, fortalecimento do core e mobilidade articular para equilíbrio físico e mental.',
     icon: Sparkles,
     tag: 'Bem-estar',
+    imagem:
+      'https://images.unsplash.com/photo-1518310383802-640c2de311b2?auto=format&fit=crop&w=900&q=80',
   },
 ];
 
@@ -76,42 +97,42 @@ type DiaSemana = 'Segunda' | 'Terça' | 'Quarta' | 'Quinta' | 'Sexta' | 'Sábado
 
 const GRADE_AULAS: Record<DiaSemana, { hora: string; aula: string; categoria: string }[]> = {
   Segunda: [
-    { hora: '05:30 / 06:30 / 07:30', aula: 'Cross Training Híbrido', categoria: 'Cross' },
+    { hora: '05:30 • 06:30 • 07:30', aula: 'Cross Training Híbrido', categoria: 'Cross' },
     { hora: '07:00', aula: 'Bike / Spinning', categoria: 'Cardio' },
     { hora: '08:00', aula: 'Fit Dance', categoria: 'Dança' },
     { hora: '17:00', aula: 'Fit Dance', categoria: 'Dança' },
-    { hora: '17:30 / 18:30 / 19:30', aula: 'Cross Training Híbrido', categoria: 'Cross' },
+    { hora: '17:30 • 18:30 • 19:30', aula: 'Cross Training Híbrido', categoria: 'Cross' },
     { hora: '18:00', aula: 'Bike / Spinning', categoria: 'Cardio' },
     { hora: '19:00', aula: 'Fit Dance', categoria: 'Dança' },
     { hora: '20:00', aula: 'Jiu-Jitsu', categoria: 'Lutas' },
   ],
   Terça: [
-    { hora: '05:30 / 06:30 / 07:30', aula: 'Cross Training Híbrido', categoria: 'Cross' },
-    { hora: '17:30 / 18:30 / 19:30', aula: 'Cross Training Híbrido', categoria: 'Cross' },
+    { hora: '05:30 • 06:30 • 07:30', aula: 'Cross Training Híbrido', categoria: 'Cross' },
+    { hora: '17:30 • 18:30 • 19:30', aula: 'Cross Training Híbrido', categoria: 'Cross' },
     { hora: '18:00', aula: 'Ritbox', categoria: 'Dança' },
     { hora: '19:00', aula: 'Jiu-Jitsu Kids', categoria: 'Lutas' },
     { hora: '20:00', aula: 'Muay Thai', categoria: 'Lutas' },
   ],
   Quarta: [
-    { hora: '05:30 / 06:30 / 07:30', aula: 'Cross Training Híbrido', categoria: 'Cross' },
+    { hora: '05:30 • 06:30 • 07:30', aula: 'Cross Training Híbrido', categoria: 'Cross' },
     { hora: '07:00', aula: 'Bike / Spinning', categoria: 'Cardio' },
     { hora: '08:00', aula: 'Fit Dance', categoria: 'Dança' },
     { hora: '17:00', aula: 'Fit Dance', categoria: 'Dança' },
-    { hora: '17:30 / 18:30 / 19:30', aula: 'Cross Training Híbrido', categoria: 'Cross' },
+    { hora: '17:30 • 18:30 • 19:30', aula: 'Cross Training Híbrido', categoria: 'Cross' },
     { hora: '18:00', aula: 'Bike / Spinning', categoria: 'Cardio' },
     { hora: '19:00', aula: 'Fit Dance', categoria: 'Dança' },
     { hora: '20:00', aula: 'Jiu-Jitsu', categoria: 'Lutas' },
   ],
   Quinta: [
-    { hora: '05:30 / 06:30 / 07:30', aula: 'Cross Training Híbrido', categoria: 'Cross' },
-    { hora: '17:30 / 18:30 / 19:30', aula: 'Cross Training Híbrido', categoria: 'Cross' },
+    { hora: '05:30 • 06:30 • 07:30', aula: 'Cross Training Híbrido', categoria: 'Cross' },
+    { hora: '17:30 • 18:30 • 19:30', aula: 'Cross Training Híbrido', categoria: 'Cross' },
     { hora: '18:00', aula: 'Ritbox', categoria: 'Dança' },
     { hora: '19:00', aula: 'Jiu-Jitsu Kids', categoria: 'Lutas' },
     { hora: '20:00', aula: 'Muay Thai', categoria: 'Lutas' },
   ],
   Sexta: [
-    { hora: '05:30 / 06:30 / 07:30', aula: 'Cross Training Híbrido', categoria: 'Cross' },
-    { hora: '17:30 / 18:30 / 19:30', aula: 'Cross Training Híbrido', categoria: 'Cross' },
+    { hora: '05:30 • 06:30 • 07:30', aula: 'Cross Training Híbrido', categoria: 'Cross' },
+    { hora: '17:30 • 18:30 • 19:30', aula: 'Cross Training Híbrido', categoria: 'Cross' },
     { hora: '20:00', aula: 'Jiu-Jitsu', categoria: 'Lutas' },
   ],
   Sábado: [
@@ -124,224 +145,548 @@ const GRADE_AULAS: Record<DiaSemana, { hora: string; aula: string; categoria: st
 const PLANOS = [
   {
     nome: 'Anual',
-    parcela: '12x de',
-    preco: 'R$ 139,90',
-    total: 'Total R$ 1.678,80 em até 12x',
-    destaque: 'Mais Vantajoso',
+    sub: '12x no cartão',
+    valorInteiro: '139',
+    valorCentavos: ',90',
+    observacao: 'Total R$ 1.678,80 • Economia máxima',
+    destaque: 'Mais Escolhido',
     recomendado: true,
     beneficios: [
-      'Acesso completo à Musculação',
+      'Musculação livre +2.000m²',
       'Todas as Aulas Coletivas inclusas',
-      'Acesso às duas unidades do CT ZHN',
+      'Acesso às 2 unidades do CT ZHN',
       'Horário estendido (04h30 às 24h)',
     ],
   },
   {
     nome: 'Semestral',
-    parcela: '6x de',
-    preco: 'R$ 149,90',
-    total: 'Total R$ 899,40 em até 6x',
+    sub: '6x no cartão',
+    valorInteiro: '149',
+    valorCentavos: ',90',
+    observacao: 'Total R$ 899,40 em até 6x',
     destaque: null,
     recomendado: false,
     beneficios: [
-      'Acesso completo à Musculação',
+      'Musculação livre +2.000m²',
       'Todas as Aulas Coletivas inclusas',
-      'Acesso às duas unidades do CT ZHN',
+      'Acesso às 2 unidades do CT ZHN',
       'Horário estendido (04h30 às 24h)',
     ],
   },
   {
     nome: 'Recorrente',
-    parcela: 'Cobrança mensal',
-    preco: 'R$ 159,90',
-    total: 'Sem comprometer o limite do cartão',
+    sub: 'Cobrança mensal',
+    valorInteiro: '159',
+    valorCentavos: ',90',
+    observacao: 'Não compromete o limite do cartão',
     destaque: null,
     recomendado: false,
     beneficios: [
-      'Acesso completo à Musculação',
+      'Musculação livre +2.000m²',
       'Todas as Aulas Coletivas inclusas',
-      'Pagamento recorrente no crédito',
+      'Cobrança automática mensal',
       'Horário estendido (04h30 às 24h)',
     ],
   },
   {
     nome: 'Mensal',
-    parcela: 'À vista',
-    preco: 'R$ 179,90',
-    total: '1x de R$ 179,90 sem fidelidade',
+    sub: 'Pagamento único',
+    valorInteiro: '179',
+    valorCentavos: ',90',
+    observacao: '1x à vista • Sem fidelidade',
     destaque: null,
     recomendado: false,
     beneficios: [
-      'Acesso completo à Musculação',
+      'Musculação livre +2.000m²',
       'Todas as Aulas Coletivas inclusas',
-      'Ideal para quem quer testar por 30 dias',
+      'Acesso completo por 30 dias',
       'Horário estendido (04h30 às 24h)',
     ],
   },
 ];
 
 export function App() {
+  const [menuAberto, setMenuAberto] = useState(false);
   const [diaSelecionado, setDiaSelecionado] = useState<DiaSemana>('Segunda');
   const [nomeLead, setNomeLead] = useState('');
   const [modalidadeInteresse, setModalidadeInteresse] = useState('Musculação + Aulas Coletivas');
-  const [horarioPreferido, setHorarioPreferido] = useState('Noite (após 18h)');
+  const [horarioPreferido, setHorarioPreferido] = useState('Noite (18h às 24h)');
 
   const abrirWhatsApp = (mensagem?: string) => {
     const texto =
       mensagem ||
-      'Olá! Vim pelo site do CT ZHN Paulínia e gostaria de mais informações sobre planos e aula experimental.';
+      'Olá! Vim pelo site do CT ZHN Paulínia e gostaria de agendar uma visita / aula experimental.';
     window.open(`https://wa.me/${CT_CONFIG.whatsapp}?text=${encodeURIComponent(texto)}`, '_blank');
   };
 
   const handleLeadSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (!nomeLead.trim()) return;
-    const msg = `Olá, equipe CT ZHN! Meu nome é *${nomeLead}*.\nTenho interesse em: *${modalidadeInteresse}*\nHorário que costumo treinar: *${horarioPreferido}*\n\nGostaria de agendar uma visita / aula experimental e conhecer as condições!`;
+    const msg = `Olá, equipe CT ZHN! Meu nome é *${nomeLead}*.\nInteresse: *${modalidadeInteresse}*\nTurno preferido: *${horarioPreferido}*\n\nQuero resgatar minha visita / aula experimental!`;
     abrirWhatsApp(msg);
   };
 
   return (
-    <div className="min-h-screen bg-neutral-950 text-neutral-100 font-sans selection:bg-red-600 selection:text-white">
-      {/* TOP BAR PROMOCIONAL */}
-      <div className="bg-gradient-to-r from-red-700 via-red-600 to-red-700 px-4 py-2 text-center text-xs sm:text-sm font-bold tracking-wide text-white">
-        🔥 CONDIÇÃO ESPECIAL: Comece a treinar pagando apenas <span className="underline">R$ 39,90 no 1º mês</span>!{' '}
-        <button
-          onClick={() =>
-            abrirWhatsApp('Olá! Vi no site a condição especial de R$ 39,90 no primeiro mês e quero garantir a minha!')
-          }
-          className="ml-2 inline-flex items-center gap-1 rounded bg-neutral-950/30 px-2.5 py-0.5 text-xs uppercase hover:bg-neutral-950/50 transition cursor-pointer"
-        >
-          Garantir agora <ArrowRight className="h-3 w-3" />
-        </button>
+    <div className="min-h-screen bg-[#09090b] text-zinc-100 selection:bg-red-600 selection:text-white">
+      {/* FAIXA DE OFERTA */}
+      <div className="relative z-50 bg-red-600 px-4 py-2 text-center text-xs sm:text-sm font-bold tracking-wide text-white">
+        <span className="inline-flex flex-wrap items-center justify-center gap-2">
+          <span>🔥 CONDIÇÃO LIMITADA: Comece a treinar pagando apenas R$ 39,90 no 1º mês</span>
+          <button
+            onClick={() =>
+              abrirWhatsApp('Olá! Quero garantir a promoção de R$ 39,90 no primeiro mês no CT ZHN Paulínia!')
+            }
+            className="inline-flex items-center gap-1 rounded-full bg-black/30 px-3 py-0.5 text-xs uppercase tracking-wider hover:bg-black/50 transition cursor-pointer"
+          >
+            Garantir vaga <ArrowUpRight className="h-3.5 w-3.5" />
+          </button>
+        </span>
       </div>
 
-      {/* NAVBAR */}
-      <header className="sticky top-0 z-50 border-b border-neutral-800/80 bg-neutral-950/90 backdrop-blur-md">
-        <div className="mx-auto flex max-w-6xl items-center justify-between px-4 py-3">
-          <a href="#" className="flex items-center gap-3">
-            <img
-              src="/logo-ctzhn.png"
-              alt="Logo CT ZHN Centro de Treinamento"
-              className="h-12 w-auto object-contain rounded-lg bg-white/95 p-1"
-            />
-            <div className="hidden sm:block">
-              <span className="block font-black text-lg tracking-wider text-white leading-none">
-                {CT_CONFIG.nome}
+      {/* HEADER */}
+      <header className="sticky top-0 z-40 border-b border-white/10 bg-[#09090b]/85 backdrop-blur-xl">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 py-3.5">
+          <a href="#" className="flex items-center gap-3 group">
+            <div className="relative flex items-center justify-center rounded-xl bg-white p-1 shadow-md shadow-red-600/10 transition group-hover:scale-105">
+              <img
+                src="/logo-ctzhn.png"
+                alt="CT ZHN Centro de Treinamento"
+                className="h-11 w-auto object-contain"
+              />
+            </div>
+            <div>
+              <span className="font-display block text-2xl font-bold tracking-wider text-white leading-none">
+                CT ZHN
               </span>
-              <span className="text-[10px] font-semibold tracking-widest text-amber-400">
-                PAULÍNIA • SP
+              <span className="text-[10px] font-bold uppercase tracking-[0.22em] text-amber-400">
+                Paulínia • SP
               </span>
             </div>
           </a>
 
-          <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-neutral-300">
-            <a href="#modalidades" className="hover:text-red-500 transition">Modalidades</a>
-            <a href="#grade" className="hover:text-red-500 transition">Grade de Aulas</a>
-            <a href="#planos" className="hover:text-red-500 transition">Planos</a>
-            <a href="#localizacao" className="hover:text-red-500 transition">Localização</a>
+          <nav className="hidden md:flex items-center gap-8 text-sm font-semibold text-zinc-300">
+            <a href="#estrutura" className="hover:text-white transition">Estrutura</a>
+            <a href="#modalidades" className="hover:text-white transition">Modalidades</a>
+            <a href="#grade" className="hover:text-white transition">Grade Horária</a>
+            <a href="#planos" className="hover:text-white transition">Planos</a>
+            <a href="#localizacao" className="hover:text-white transition">Unidade</a>
           </nav>
 
+          <div className="hidden md:flex items-center gap-3">
+            <a
+              href="#experimental"
+              className="rounded-xl border border-white/15 px-4 py-2.5 text-xs font-bold uppercase tracking-wider text-white hover:bg-white/5 transition"
+            >
+              Aula Grátis
+            </a>
+            <button
+              onClick={() => abrirWhatsApp()}
+              className="inline-flex items-center gap-2 rounded-xl bg-red-600 px-5 py-2.5 text-xs font-extrabold uppercase tracking-wider text-white shadow-lg shadow-red-600/25 hover:bg-red-500 transition cursor-pointer"
+            >
+              Matricule-se <ArrowUpRight className="h-4 w-4" />
+            </button>
+          </div>
+
+          {/* BOTÃO MOBILE */}
           <button
-            onClick={() => abrirWhatsApp()}
-            className="inline-flex items-center gap-2 rounded-xl bg-red-600 px-4 py-2.5 text-sm font-bold text-white shadow-lg shadow-red-600/20 hover:bg-red-500 transition cursor-pointer"
+            onClick={() => setMenuAberto(!menuAberto)}
+            className="md:hidden rounded-lg border border-white/10 p-2 text-zinc-300 hover:text-white"
+            aria-label="Abrir menu"
           >
-            <Phone className="h-4 w-4" />
-            <span>Matricule-se</span>
+            {menuAberto ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
         </div>
+
+        {/* MENU MOBILE */}
+        {menuAberto && (
+          <div className="md:hidden border-t border-white/10 bg-[#09090b] px-4 py-5 space-y-4">
+            <div className="flex flex-col space-y-3 text-sm font-semibold text-zinc-300">
+              <a href="#estrutura" onClick={() => setMenuAberto(false)}>Estrutura</a>
+              <a href="#modalidades" onClick={() => setMenuAberto(false)}>Modalidades</a>
+              <a href="#grade" onClick={() => setMenuAberto(false)}>Grade Horária</a>
+              <a href="#planos" onClick={() => setMenuAberto(false)}>Planos</a>
+              <a href="#localizacao" onClick={() => setMenuAberto(false)}>Localização</a>
+            </div>
+            <button
+              onClick={() => abrirWhatsApp()}
+              className="w-full rounded-xl bg-red-600 py-3 text-sm font-extrabold uppercase tracking-wider text-white"
+            >
+              Falar no WhatsApp
+            </button>
+          </div>
+        )}
       </header>
 
-      {/* HERO SECTION */}
-      <section className="relative overflow-hidden py-16 md:py-24 px-4">
-        <div className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-96 w-[700px] rounded-full bg-red-600/15 blur-3xl" />
+      {/* HERO CINEMATOGRÁFICO */}
+      <section className="relative min-h-[88vh] flex items-center overflow-hidden border-b border-white/10">
+        {/* IMAGEM DE FUNDO COM OVERLAY DRAMÁTICO */}
+        <div className="absolute inset-0">
+          <img
+            src="https://images.unsplash.com/photo-1540497077202-7c8a3999166f?auto=format&fit=crop&w=1920&q=80"
+            alt="Estrutura CT ZHN Paulínia"
+            className="h-full w-full object-cover object-center opacity-35 scale-105"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#09090b] via-[#09090b]/90 to-[#09090b]/40" />
+          <div className="absolute inset-0 bg-gradient-to-t from-[#09090b] via-transparent to-[#09090b]/60" />
+        </div>
 
-        <div className="mx-auto max-w-6xl grid lg:grid-cols-12 gap-12 items-center relative">
-          <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 rounded-full border border-amber-500/30 bg-amber-500/10 px-3.5 py-1.5 text-xs font-bold uppercase tracking-wider text-amber-300">
-              <Award className="h-4 w-4 text-amber-400" />
-              O Maior Centro de Treinamento de Paulínia
+        {/* BRILHO VERMELHO DE AMBIENTE */}
+        <div className="pointer-events-none absolute -left-32 top-1/4 h-[500px] w-[500px] rounded-full bg-red-600/20 blur-[140px]" />
+
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 py-20 w-full">
+          <div className="max-w-3xl space-y-7">
+            <div className="inline-flex items-center gap-2.5 rounded-full border border-red-500/40 bg-red-600/10 px-4 py-1.5 backdrop-blur-md">
+              <span className="h-2 w-2 rounded-full bg-red-500 animate-pulse" />
+              <span className="text-xs font-extrabold uppercase tracking-[0.2em] text-red-400">
+                O Maior Centro de Treinamento de Paulínia
+              </span>
             </div>
 
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight leading-[1.08]">
-              Mais de <span className="text-red-500">2.000 m²</span> de estrutura para você atingir sua{' '}
-              <span className="text-amber-400">melhor versão.</span>
+            <h1 className="font-display text-5xl sm:text-7xl lg:text-[84px] font-bold tracking-tight leading-[0.95] text-white">
+              ESTRUTURA DE ELITE.{' '}
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-red-500 via-red-400 to-amber-400">
+                RESULTADO REAL.
+              </span>
             </h1>
 
-            <p className="text-neutral-300 text-lg max-w-xl leading-relaxed">
-              Musculação com equipamentos de ponta, Cross Training, Lutas, Danças, Spinning e Pilates em um só lugar — com horário estendido das{' '}
-              <strong className="text-white">04h30 à meia-noite</strong>.
+            <p className="text-zinc-300 text-lg sm:text-xl max-w-2xl leading-relaxed font-normal">
+              Mais de <strong className="text-white font-bold">2.000 m²</strong> com equipamentos de ponta, Cross Training, Lutas, Danças, Spinning e Pilates. Aberto de{' '}
+              <strong className="text-amber-400 font-bold">Segunda a Sexta das 04h30 à meia-noite</strong>.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 pt-2">
               <a
-                href="#agendar"
-                className="inline-flex items-center justify-center gap-2 rounded-xl bg-red-600 px-7 py-4 text-base font-extrabold text-white shadow-xl shadow-red-600/25 hover:bg-red-500 transition"
+                href="#experimental"
+                className="group inline-flex items-center justify-center gap-3 rounded-2xl bg-red-600 px-8 py-4.5 text-sm font-extrabold uppercase tracking-wider text-white shadow-2xl shadow-red-600/30 hover:bg-red-500 transition"
               >
-                Agendar Visita / Aula Grátis <ArrowRight className="h-5 w-5" />
+                <span>Agendar Aula Experimental</span>
+                <ChevronRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
               </a>
               <a
                 href="#planos"
-                className="inline-flex items-center justify-center rounded-xl border border-neutral-700 bg-neutral-900/90 px-7 py-4 text-base font-bold text-neutral-100 hover:border-neutral-500 hover:bg-neutral-800 transition"
+                className="inline-flex items-center justify-center rounded-2xl border border-white/20 bg-white/5 px-8 py-4.5 text-sm font-extrabold uppercase tracking-wider text-white backdrop-blur-md hover:bg-white/10 transition"
               >
-                Conhecer Planos
+                Ver Planos e Valores
               </a>
             </div>
+          </div>
+        </div>
+      </section>
 
-            {/* NÚMEROS DE AUTORIDADE */}
-            <div className="grid grid-cols-3 gap-4 pt-6 border-t border-neutral-800/80">
-              <div>
-                <p className="text-2xl sm:text-3xl font-black text-white">+2.000m²</p>
-                <p className="text-xs text-neutral-400">De estrutura completa</p>
-              </div>
-              <div>
-                <p className="text-2xl sm:text-3xl font-black text-red-500">04h30 - 24h</p>
-                <p className="text-xs text-neutral-400">Segunda a Sexta</p>
-              </div>
-              <div>
-                <p className="text-2xl sm:text-3xl font-black text-amber-400">2 Unidades</p>
-                <p className="text-xs text-neutral-400">Acesso livre no CT ZHN</p>
-              </div>
+      {/* BARRA DE NÚMEROS / AUTORIDADE */}
+      <section id="estrutura" className="border-b border-white/10 bg-zinc-950/90">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 py-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="border-l-2 border-red-600 pl-4">
+              <p className="font-display text-4xl sm:text-5xl font-bold text-white">+2.000m²</p>
+              <p className="text-xs sm:text-sm font-medium text-zinc-400 mt-1">
+                Maior estrutura fitness de Paulínia
+              </p>
+            </div>
+            <div className="border-l-2 border-amber-400 pl-4">
+              <p className="font-display text-4xl sm:text-5xl font-bold text-white">04h30 - 24h</p>
+              <p className="text-xs sm:text-sm font-medium text-zinc-400 mt-1">
+                Horário estendido de Seg a Sex
+              </p>
+            </div>
+            <div className="border-l-2 border-red-600 pl-4">
+              <p className="font-display text-4xl sm:text-5xl font-bold text-white">2 UNIDADES</p>
+              <p className="text-xs sm:text-sm font-medium text-zinc-400 mt-1">
+                Acesso integrado na rede CT ZHN
+              </p>
+            </div>
+            <div className="border-l-2 border-amber-400 pl-4">
+              <p className="font-display text-4xl sm:text-5xl font-bold text-white">+12.600</p>
+              <p className="text-xs sm:text-sm font-medium text-zinc-400 mt-1">
+                Alunos e seguidores na comunidade
+              </p>
             </div>
           </div>
+        </div>
+      </section>
 
-          {/* CARD DESTAQUE / FORMULÁRIO RÁPIDO HERO */}
-          <div id="agendar" className="lg:col-span-5">
-            <div className="rounded-3xl border border-neutral-800 bg-neutral-900/90 p-6 sm:p-8 shadow-2xl space-y-6">
-              <div className="space-y-1.5">
-                <span className="text-xs font-bold uppercase tracking-wider text-red-500">
-                  Atendimento Rápido
+      {/* MODALIDADES COM FOTOS E VISUAL EDITORIAL */}
+      <section id="modalidades" className="py-24 bg-grid-pattern relative">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 space-y-14">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+            <div className="space-y-3">
+              <span className="text-xs font-extrabold uppercase tracking-[0.25em] text-red-500">
+                Tudo em um só lugar
+              </span>
+              <h2 className="font-display text-4xl sm:text-6xl font-bold text-white leading-none">
+                Nossas Modalidades
+              </h2>
+            </div>
+            <p className="text-zinc-400 max-w-md text-sm sm:text-base">
+              Ambientes exclusivos, climatizados e equipados para você evoluir na musculação, no cardio ou no tatame.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {MODALIDADES.map((mod) => {
+              const Icon = mod.icon;
+              return (
+                <div
+                  key={mod.titulo}
+                  className="group relative overflow-hidden rounded-3xl border border-white/10 bg-zinc-900/60 flex flex-col justify-between transition-all duration-300 hover:-translate-y-1 hover:border-red-500/60"
+                >
+                  {/* IMAGEM DO CARD */}
+                  <div className="relative h-52 overflow-hidden">
+                    <img
+                      src={mod.imagem}
+                      alt={mod.titulo}
+                      className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-zinc-950 via-zinc-950/40 to-transparent" />
+                    <span className="absolute top-4 left-4 rounded-full bg-black/70 border border-white/15 px-3 py-1 text-[11px] font-bold uppercase tracking-wider text-amber-400 backdrop-blur-md">
+                      {mod.tag}
+                    </span>
+                    <span className="font-display absolute bottom-2 right-5 text-5xl font-bold text-white/15">
+                      {mod.num}
+                    </span>
+                  </div>
+
+                  {/* CONTEÚDO DO CARD */}
+                  <div className="p-6 pt-3 space-y-3 flex-1 flex flex-col justify-between">
+                    <div className="space-y-2.5">
+                      <div className="flex items-center gap-2.5">
+                        <div className="rounded-lg bg-red-600/20 p-2 text-red-500">
+                          <Icon className="h-5 w-5" />
+                        </div>
+                        <h3 className="font-display text-2xl font-bold text-white tracking-wide">
+                          {mod.titulo}
+                        </h3>
+                      </div>
+                      <p className="text-sm text-zinc-400 leading-relaxed">{mod.descricao}</p>
+                    </div>
+
+                    <button
+                      onClick={() =>
+                        abrirWhatsApp(
+                          `Olá! Gostaria de conhecer mais sobre a modalidade *${mod.titulo}* no CT ZHN Paulínia.`
+                        )
+                      }
+                      className="pt-3 inline-flex items-center gap-1.5 text-xs font-extrabold uppercase tracking-wider text-red-400 group-hover:text-red-300 transition cursor-pointer"
+                    >
+                      Agendar aula experimental <ArrowUpRight className="h-4 w-4" />
+                    </button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* GRADE HORÁRIA INTERATIVA */}
+      <section id="grade" className="py-24 border-y border-white/10 bg-zinc-950">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6 space-y-12">
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <span className="text-xs font-extrabold uppercase tracking-[0.25em] text-amber-400">
+              Aulas Coletivas & Cross
+            </span>
+            <h2 className="font-display text-4xl sm:text-6xl font-bold text-white">
+              Grade de Horários
+            </h2>
+            <p className="text-zinc-400 text-sm sm:text-base">
+              Escolha o dia da semana e reserve sua vaga direto pelo WhatsApp.
+            </p>
+          </div>
+
+          {/* ABAS DE DIAS */}
+          <div className="flex flex-wrap justify-center gap-2.5">
+            {(Object.keys(GRADE_AULAS) as DiaSemana[]).map((dia) => (
+              <button
+                key={dia}
+                onClick={() => setDiaSelecionado(dia)}
+                className={`rounded-xl px-6 py-3 text-xs sm:text-sm font-extrabold uppercase tracking-wider transition cursor-pointer ${
+                  diaSelecionado === dia
+                    ? 'bg-red-600 text-white shadow-lg shadow-red-600/30'
+                    : 'border border-white/10 bg-zinc-900/80 text-zinc-400 hover:border-white/25 hover:text-white'
+                }`}
+              >
+                {dia}
+              </button>
+            ))}
+          </div>
+
+          {/* CARDS DE HORÁRIOS */}
+          <div className="grid sm:grid-cols-2 gap-4">
+            {GRADE_AULAS[diaSelecionado].map((item, idx) => (
+              <div
+                key={`${item.aula}-${idx}`}
+                className="flex items-center justify-between rounded-2xl border border-white/10 bg-zinc-900/50 p-5 hover:border-red-500/40 transition"
+              >
+                <div className="space-y-1.5">
+                  <div className="inline-flex items-center gap-2 rounded-md bg-red-600/15 px-2.5 py-1 text-xs font-bold text-red-400">
+                    <Calendar className="h-3.5 w-3.5" />
+                    <span>{item.hora}</span>
+                  </div>
+                  <h4 className="font-display text-2xl font-bold text-white tracking-wide">
+                    {item.aula}
+                  </h4>
+                  <p className="text-xs font-semibold uppercase tracking-wider text-zinc-500">
+                    {item.categoria}
+                  </p>
+                </div>
+
+                <button
+                  onClick={() =>
+                    abrirWhatsApp(
+                      `Olá! Quero agendar uma aula experimental de *${item.aula}* na *${diaSelecionado}* (${item.hora}) no CT ZHN Paulínia.`
+                    )
+                  }
+                  className="shrink-0 rounded-xl bg-white/10 px-4 py-2.5 text-xs font-extrabold uppercase tracking-wider text-white hover:bg-red-600 transition cursor-pointer"
+                >
+                  Reservar
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PLANOS */}
+      <section id="planos" className="py-24 bg-grid-pattern relative">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 space-y-14">
+          <div className="text-center max-w-2xl mx-auto space-y-3">
+            <span className="text-xs font-extrabold uppercase tracking-[0.25em] text-red-500">
+              Invista em Você
+            </span>
+            <h2 className="font-display text-4xl sm:text-6xl font-bold text-white">
+              Planos CT ZHN
+            </h2>
+            <p className="text-zinc-400 text-sm sm:text-base">
+              Todos os planos incluem musculação completa e acesso às aulas coletivas.
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch">
+            {PLANOS.map((plano) => (
+              <div
+                key={plano.nome}
+                className={`relative rounded-3xl p-7 flex flex-col justify-between transition-all ${
+                  plano.recomendado
+                    ? 'border-2 border-red-500 bg-gradient-to-b from-red-950/40 via-zinc-900 to-zinc-950 shadow-2xl shadow-red-600/20 lg:-translate-y-2'
+                    : 'border border-white/10 bg-zinc-900/70'
+                }`}
+              >
+                {plano.destaque && (
+                  <span className="absolute -top-3.5 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full bg-amber-400 px-4 py-1 text-xs font-black uppercase tracking-wider text-black shadow-lg">
+                    ★ {plano.destaque}
+                  </span>
+                )}
+
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="font-display text-3xl font-bold text-white tracking-wide">
+                      Plano {plano.nome}
+                    </h3>
+                    <p className="text-xs font-semibold uppercase tracking-wider text-zinc-400 mt-1">
+                      {plano.sub}
+                    </p>
+                  </div>
+
+                  <div className="flex items-baseline text-white">
+                    <span className="text-lg font-bold text-zinc-400 mr-1">R$</span>
+                    <span className="font-display text-6xl font-bold tracking-tight">
+                      {plano.valorInteiro}
+                    </span>
+                    <span className="text-2xl font-bold text-red-500">{plano.valorCentavos}</span>
+                    <span className="text-xs text-zinc-400 ml-1">/mês</span>
+                  </div>
+
+                  <p className="text-xs text-zinc-400 border-b border-white/10 pb-5">
+                    {plano.observacao}
+                  </p>
+
+                  <ul className="space-y-3">
+                    {plano.beneficios.map((ben) => (
+                      <li key={ben} className="flex items-start gap-2.5 text-sm text-zinc-200">
+                        <span className="mt-0.5 rounded-full bg-red-600/20 p-1 text-red-500">
+                          <Check className="h-3.5 w-3.5" />
+                        </span>
+                        <span>{ben}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <button
+                  onClick={() =>
+                    abrirWhatsApp(
+                      `Olá! Quero assinar o *Plano ${plano.nome}* (${plano.sub} de R$ ${plano.valorInteiro}${plano.valorCentavos}) no CT ZHN Paulínia!`
+                    )
+                  }
+                  className={`mt-8 w-full rounded-xl py-4 text-xs font-extrabold uppercase tracking-widest transition cursor-pointer ${
+                    plano.recomendado
+                      ? 'bg-red-600 text-white shadow-lg shadow-red-600/30 hover:bg-red-500'
+                      : 'bg-white text-black hover:bg-zinc-200'
+                  }`}
+                >
+                  Quero Este Plano
+                </button>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* SEÇÃO DE CAPTURA DE LEAD (AULA EXPERIMENTAL) */}
+      <section id="experimental" className="py-24 border-t border-white/10 bg-zinc-950">
+        <div className="mx-auto max-w-6xl px-4 sm:px-6">
+          <div className="overflow-hidden rounded-3xl border border-white/10 bg-gradient-to-br from-zinc-900 via-zinc-900 to-red-950/30 grid lg:grid-cols-12">
+            {/* LADO ESQUERDO: CHAMADA */}
+            <div className="lg:col-span-6 p-8 sm:p-12 flex flex-col justify-between space-y-8">
+              <div className="space-y-4">
+                <span className="inline-block rounded-full bg-red-600/20 border border-red-500/30 px-3.5 py-1 text-xs font-extrabold uppercase tracking-widest text-red-400">
+                  Passe Livre • Sem Compromisso
                 </span>
-                <h2 className="text-2xl font-black text-white">
-                  Garanta seu Treino Experimental
+                <h2 className="font-display text-4xl sm:text-5xl font-bold text-white leading-tight">
+                  VENHA CONHECER A ESTRUTURA NA PRÁTICA.
                 </h2>
-                <p className="text-sm text-neutral-400">
-                  Preencha abaixo e fale direto com a recepção do CT ZHN no WhatsApp.
+                <p className="text-zinc-300 text-base leading-relaxed">
+                  Agende agora um treino experimental gratuito no CT ZHN Paulínia. Conheça nossos equipamentos, salas de aula e tire suas dúvidas direto com nossa equipe.
                 </p>
               </div>
 
-              <form onSubmit={handleLeadSubmit} className="space-y-4">
+              <div className="space-y-3 text-sm text-zinc-300">
+                <div className="flex items-center gap-3">
+                  <Building2 className="h-5 w-5 text-amber-400" />
+                  <span>Mais de 2.000m² climatizados em Paulínia</span>
+                </div>
+                <div className="flex items-center gap-3">
+                  <Clock className="h-5 w-5 text-amber-400" />
+                  <span>Aberto das 04h30 às 24h (Segunda a Sexta)</span>
+                </div>
+              </div>
+            </div>
+
+            {/* LADO DIREITO: FORMULÁRIO */}
+            <div className="lg:col-span-6 bg-black/40 p-8 sm:p-12 border-t lg:border-t-0 lg:border-l border-white/10">
+              <form onSubmit={handleLeadSubmit} className="space-y-5">
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-1.5">
-                    Seu Nome
+                  <label className="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">
+                    Seu Nome Completo
                   </label>
                   <input
                     type="text"
                     required
-                    placeholder="Digite seu nome completo"
+                    placeholder="Ex: Lucas Oliveira"
                     value={nomeLead}
                     onChange={(e) => setNomeLead(e.target.value)}
-                    className="w-full rounded-xl border border-neutral-700 bg-neutral-950 px-4 py-3 text-sm text-white placeholder-neutral-500 focus:border-red-500 focus:outline-none"
+                    className="w-full rounded-xl border border-white/15 bg-zinc-950 px-4 py-3.5 text-sm text-white placeholder-zinc-600 focus:border-red-500 focus:outline-none"
                   />
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-1.5">
-                    O que você busca treinar?
+                  <label className="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">
+                    Modalidade de Interesse
                   </label>
                   <select
                     value={modalidadeInteresse}
                     onChange={(e) => setModalidadeInteresse(e.target.value)}
-                    className="w-full rounded-xl border border-neutral-700 bg-neutral-950 px-4 py-3 text-sm text-white focus:border-red-500 focus:outline-none"
+                    className="w-full rounded-xl border border-white/15 bg-zinc-950 px-4 py-3.5 text-sm text-white focus:border-red-500 focus:outline-none"
                   >
                     <option value="Musculação + Aulas Coletivas">Musculação + Aulas Coletivas</option>
                     <option value="Cross Training Híbrido">Cross Training Híbrido</option>
@@ -352,26 +697,26 @@ export function App() {
                 </div>
 
                 <div>
-                  <label className="block text-xs font-semibold uppercase tracking-wider text-neutral-300 mb-1.5">
-                    Melhor turno para você
+                  <label className="block text-xs font-bold uppercase tracking-wider text-zinc-400 mb-2">
+                    Turno que prefere treinar
                   </label>
                   <select
                     value={horarioPreferido}
                     onChange={(e) => setHorarioPreferido(e.target.value)}
-                    className="w-full rounded-xl border border-neutral-700 bg-neutral-950 px-4 py-3 text-sm text-white focus:border-red-500 focus:outline-none"
+                    className="w-full rounded-xl border border-white/15 bg-zinc-950 px-4 py-3.5 text-sm text-white focus:border-red-500 focus:outline-none"
                   >
-                    <option value="Madrugada / Manhã cedo (04h30 - 09h)">Madrugada / Manhã cedo (04h30 - 09h)</option>
-                    <option value="Manhã / Almoço (09h - 14h)">Manhã / Almoço (09h - 14h)</option>
-                    <option value="Tarde (14h - 18h)">Tarde (14h - 18h)</option>
-                    <option value="Noite (18h - 24h)">Noite (18h - 24h)</option>
+                    <option value="Madrugada / Manhã cedo (04h30 às 09h)">Madrugada / Manhã cedo (04h30 às 09h)</option>
+                    <option value="Manhã / Almoço (09h às 14h)">Manhã / Almoço (09h às 14h)</option>
+                    <option value="Tarde (14h às 18h)">Tarde (14h às 18h)</option>
+                    <option value="Noite (18h às 24h)">Noite (18h às 24h)</option>
                   </select>
                 </div>
 
                 <button
                   type="submit"
-                  className="w-full flex items-center justify-center gap-2 rounded-xl bg-emerald-600 py-4 text-sm font-extrabold uppercase tracking-wide text-white shadow-lg shadow-emerald-600/20 hover:bg-emerald-500 transition cursor-pointer"
+                  className="w-full flex items-center justify-center gap-2 rounded-xl bg-emerald-600 py-4 text-sm font-extrabold uppercase tracking-wider text-white shadow-xl shadow-emerald-600/20 hover:bg-emerald-500 transition cursor-pointer"
                 >
-                  <Phone className="h-4 w-4" /> Receber Passe no WhatsApp
+                  <Phone className="h-4 w-4" /> Resgatar Aula Grátis no WhatsApp
                 </button>
               </form>
             </div>
@@ -379,215 +724,47 @@ export function App() {
         </div>
       </section>
 
-      {/* MODALIDADES */}
-      <section id="modalidades" className="py-20 bg-neutral-900/50 border-y border-neutral-800/80 px-4">
-        <div className="mx-auto max-w-6xl space-y-12">
-          <div className="text-center max-w-2xl mx-auto space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-red-500">
-              Estrutura Completa
+      {/* LOCALIZAÇÃO */}
+      <section id="localizacao" className="py-24 border-t border-white/10">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 grid lg:grid-cols-12 gap-10 items-center">
+          <div className="lg:col-span-5 space-y-6">
+            <span className="text-xs font-extrabold uppercase tracking-[0.25em] text-amber-400">
+              Localização
             </span>
-            <h2 className="text-3xl md:text-4xl font-black">Modalidades do CT ZHN</h2>
-            <p className="text-neutral-400">
-              Ambientes exclusivos e climatizados para você treinar com intensidade, segurança e motivação.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {MODALIDADES.map((mod) => {
-              const Icon = mod.icon;
-              return (
-                <div
-                  key={mod.titulo}
-                  className="group rounded-2xl border border-neutral-800 bg-neutral-950 p-6 space-y-4 hover:border-red-500/60 transition"
-                >
-                  <div className="flex items-center justify-between">
-                    <div className="rounded-xl bg-red-600/15 p-3 text-red-500 group-hover:bg-red-600 group-hover:text-white transition">
-                      <Icon className="h-6 w-6" />
-                    </div>
-                    <span className="rounded-full border border-neutral-800 bg-neutral-900 px-3 py-1 text-xs font-semibold text-amber-400">
-                      {mod.tag}
-                    </span>
-                  </div>
-                  <h3 className="text-xl font-bold text-white">{mod.titulo}</h3>
-                  <p className="text-sm text-neutral-400 leading-relaxed">{mod.descricao}</p>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      {/* GRADE DE AULAS COLETIVAS INTERATIVA */}
-      <section id="grade" className="py-20 px-4">
-        <div className="mx-auto max-w-5xl space-y-10">
-          <div className="text-center max-w-2xl mx-auto space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-amber-400">
-              Organize sua Rotina
-            </span>
-            <h2 className="text-3xl md:text-4xl font-black">Grade de Aulas Coletivas & Cross</h2>
-            <p className="text-neutral-400">
-              Selecione o dia da semana para conferir os horários das turmas em Paulínia.
-            </p>
-          </div>
-
-          {/* SELETOR DE DIAS */}
-          <div className="flex flex-wrap justify-center gap-2">
-            {(Object.keys(GRADE_AULAS) as DiaSemana[]).map((dia) => (
-              <button
-                key={dia}
-                onClick={() => setDiaSelecionado(dia)}
-                className={`rounded-xl px-5 py-2.5 text-sm font-bold transition cursor-pointer ${
-                  diaSelecionado === dia
-                    ? 'bg-red-600 text-white shadow-lg shadow-red-600/25'
-                    : 'bg-neutral-900 text-neutral-400 border border-neutral-800 hover:text-white'
-                }`}
-              >
-                {dia}
-              </button>
-            ))}
-          </div>
-
-          {/* LISTA DE HORÁRIOS DO DIA */}
-          <div className="grid sm:grid-cols-2 gap-4">
-            {GRADE_AULAS[diaSelecionado].map((item, idx) => (
-              <div
-                key={`${item.aula}-${idx}`}
-                className="flex items-center justify-between rounded-2xl border border-neutral-800 bg-neutral-900/70 p-4 sm:p-5"
-              >
-                <div className="space-y-1">
-                  <div className="flex items-center gap-2 text-xs font-bold text-red-400">
-                    <Calendar className="h-3.5 w-3.5" />
-                    <span>{item.hora}</span>
-                  </div>
-                  <h4 className="text-base sm:text-lg font-bold text-white">{item.aula}</h4>
-                  <span className="inline-block text-xs text-neutral-400">{item.categoria}</span>
-                </div>
-
-                <button
-                  onClick={() =>
-                    abrirWhatsApp(
-                      `Olá! Gostaria de agendar uma aula experimental de *${item.aula}* (${diaSelecionado} - ${item.hora}) no CT ZHN Paulínia.`
-                    )
-                  }
-                  className="shrink-0 rounded-xl border border-neutral-700 bg-neutral-950 px-3.5 py-2 text-xs font-bold text-white hover:border-red-500 hover:bg-red-600 transition cursor-pointer"
-                >
-                  Agendar
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* PLANOS */}
-      <section id="planos" className="py-20 bg-neutral-900/50 border-y border-neutral-800/80 px-4">
-        <div className="mx-auto max-w-6xl space-y-12">
-          <div className="text-center max-w-2xl mx-auto space-y-3">
-            <span className="text-xs font-bold uppercase tracking-widest text-red-500">
-              Planos CT ZHN
-            </span>
-            <h2 className="text-3xl md:text-4xl font-black">Escolha o Plano Ideal para Você</h2>
-            <p className="text-neutral-400">
-              Opções flexíveis para todos os perfis, com estrutura completa e acesso às modalidades.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            {PLANOS.map((plano) => (
-              <div
-                key={plano.nome}
-                className={`relative rounded-2xl p-6 flex flex-col justify-between border ${
-                  plano.recomendado
-                    ? 'border-red-500 bg-neutral-900 shadow-xl shadow-red-950/30'
-                    : 'border-neutral-800 bg-neutral-950'
-                }`}
-              >
-                {plano.destaque && (
-                  <span className="absolute -top-3 right-4 rounded-full bg-amber-400 px-3 py-0.5 text-xs font-black uppercase text-neutral-950">
-                    {plano.destaque}
-                  </span>
-                )}
-
-                <div className="space-y-5">
-                  <div>
-                    <h3 className="text-xl font-black text-white">Plano {plano.nome}</h3>
-                    <p className="text-xs text-neutral-400 mt-1">{plano.parcela}</p>
-                    <p className="text-3xl font-black text-white mt-0.5">{plano.preco}</p>
-                    <p className="text-xs text-neutral-400 mt-1">{plano.total}</p>
-                  </div>
-
-                  <ul className="space-y-2.5 border-t border-neutral-800 pt-4">
-                    {plano.beneficios.map((ben) => (
-                      <li key={ben} className="flex items-start gap-2 text-xs text-neutral-300">
-                        <CheckCircle2 className="h-4 w-4 text-red-500 shrink-0 mt-0.5" />
-                        <span>{ben}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-
-                <button
-                  onClick={() =>
-                    abrirWhatsApp(
-                      `Olá! Tenho interesse no *Plano ${plano.nome}* (${plano.parcela} ${plano.preco}). Gostaria de fazer minha matrícula!`
-                    )
-                  }
-                  className={`mt-6 w-full rounded-xl py-3 text-sm font-extrabold uppercase tracking-wide transition cursor-pointer ${
-                    plano.recomendado
-                      ? 'bg-red-600 text-white hover:bg-red-500'
-                      : 'bg-neutral-800 text-white hover:bg-neutral-700'
-                  }`}
-                >
-                  Eu Quero
-                </button>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* LOCALIZAÇÃO E HORÁRIOS */}
-      <section id="localizacao" className="py-20 px-4">
-        <div className="mx-auto max-w-6xl grid md:grid-cols-2 gap-8 items-center">
-          <div className="space-y-6">
-            <span className="text-xs font-bold uppercase tracking-widest text-amber-400">
-              Venha Conhecer
-            </span>
-            <h2 className="text-3xl md:text-4xl font-black">Onde Estamos em Paulínia</h2>
-            <p className="text-neutral-400">
-              Fácil acesso na Av. Paulista com amplo horário de funcionamento para se adaptar à sua rotina.
-            </p>
+            <h2 className="font-display text-4xl sm:text-5xl font-bold text-white">
+              Onde Estamos
+            </h2>
 
             <div className="space-y-4">
-              <div className="flex items-start gap-3 rounded-2xl border border-neutral-800 bg-neutral-900/60 p-4">
-                <MapPin className="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
+              <div className="rounded-2xl border border-white/10 bg-zinc-900/60 p-5 flex items-start gap-4">
+                <MapPin className="h-6 w-6 text-red-500 shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-bold text-white text-sm">Endereço</h4>
-                  <p className="text-sm text-neutral-300">{CT_CONFIG.endereco}</p>
+                  <h4 className="font-bold text-white text-sm">Endereço Oficial</h4>
+                  <p className="text-sm text-zinc-300 mt-1">{CT_CONFIG.endereco}</p>
+                  <p className="text-xs text-zinc-500 mt-0.5">{CT_CONFIG.cep}</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 rounded-2xl border border-neutral-800 bg-neutral-900/60 p-4">
-                <Clock className="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
+              <div className="rounded-2xl border border-white/10 bg-zinc-900/60 p-5 flex items-start gap-4">
+                <Clock className="h-6 w-6 text-red-500 shrink-0 mt-0.5" />
                 <div>
                   <h4 className="font-bold text-white text-sm">Horário de Funcionamento</h4>
-                  <p className="text-sm text-neutral-300">{CT_CONFIG.horarioSemana}</p>
-                  <p className="text-sm text-neutral-300">{CT_CONFIG.horarioFds}</p>
+                  <p className="text-sm text-zinc-300 mt-1">{CT_CONFIG.horarioSemana}</p>
+                  <p className="text-sm text-zinc-300">{CT_CONFIG.horarioFds}</p>
                 </div>
               </div>
 
-              <div className="flex items-start gap-3 rounded-2xl border border-neutral-800 bg-neutral-900/60 p-4">
-                <Phone className="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
+              <div className="rounded-2xl border border-white/10 bg-zinc-900/60 p-5 flex items-start gap-4">
+                <Phone className="h-6 w-6 text-red-500 shrink-0 mt-0.5" />
                 <div>
-                  <h4 className="font-bold text-white text-sm">WhatsApp / Contato</h4>
-                  <p className="text-sm text-neutral-300">{CT_CONFIG.whatsappDisplay}</p>
+                  <h4 className="font-bold text-white text-sm">Atendimento WhatsApp</h4>
+                  <p className="text-sm text-zinc-300 mt-1">{CT_CONFIG.whatsappDisplay}</p>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* MAPA GOOGLE EMBED */}
-          <div className="overflow-hidden rounded-3xl border border-neutral-800 bg-neutral-900 h-80 md:h-96">
+          <div className="lg:col-span-7 overflow-hidden rounded-3xl border border-white/10 h-96 shadow-2xl">
             <iframe
               title="Mapa CT ZHN Paulínia"
               src="https://www.google.com/maps?q=Av.+Paulista,+609+-+Sao+Luiz,+Paulinia+-+SP&output=embed"
@@ -599,15 +776,20 @@ export function App() {
       </section>
 
       {/* FOOTER */}
-      <footer className="border-t border-neutral-900 bg-neutral-950 py-10 px-4">
-        <div className="mx-auto max-w-6xl flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-neutral-400">
+      <footer className="border-t border-white/10 bg-black py-12 px-4 sm:px-6">
+        <div className="mx-auto max-w-7xl flex flex-col sm:flex-row items-center justify-between gap-6 text-sm text-zinc-400">
           <div className="flex items-center gap-3">
             <img
               src="/logo-ctzhn.png"
               alt="CT ZHN"
-              className="h-9 w-auto rounded bg-white p-0.5"
+              className="h-10 w-auto rounded-lg bg-white p-1"
             />
-            <span className="font-bold text-white">CT ZHN • Centro de Treinamento Paulínia</span>
+            <div>
+              <span className="font-display block text-lg font-bold text-white tracking-wider">
+                CT ZHN • CENTRO DE TREINAMENTO
+              </span>
+              <span className="text-xs text-zinc-500">Av. Paulista, 609 • Paulínia - SP</span>
+            </div>
           </div>
 
           <div className="flex items-center gap-6">
@@ -615,19 +797,29 @@ export function App() {
               href={CT_CONFIG.instagram}
               target="_blank"
               rel="noreferrer"
-              className="inline-flex items-center gap-1.5 hover:text-white transition"
+              className="inline-flex items-center gap-1.5 font-semibold text-zinc-300 hover:text-white transition"
             >
               <ExternalLink className="h-4 w-4 text-red-500" /> @ctzhnpaulinia
             </a>
             <button
               onClick={() => abrirWhatsApp()}
-              className="hover:text-white transition cursor-pointer"
+              className="font-semibold text-zinc-300 hover:text-white transition cursor-pointer"
             >
-              WhatsApp
+              {CT_CONFIG.whatsappDisplay}
             </button>
           </div>
         </div>
       </footer>
+
+      {/* BOTÃO FLUTUANTE WHATSAPP */}
+      <button
+        onClick={() => abrirWhatsApp()}
+        aria-label="Falar no WhatsApp"
+        className="fixed bottom-6 right-6 z-50 flex items-center gap-2.5 rounded-full bg-emerald-600 px-5 py-3.5 text-sm font-extrabold text-white shadow-2xl shadow-emerald-600/40 hover:bg-emerald-500 hover:scale-105 transition cursor-pointer"
+      >
+        <Phone className="h-5 w-5" />
+        <span className="hidden sm:inline">Falar no WhatsApp</span>
+      </button>
     </div>
   );
 }
