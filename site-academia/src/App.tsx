@@ -220,7 +220,7 @@ export function App() {
         )}
       </header>
 
-      {/* HERO COM DEGRADÊ VERMELHO NO TOPO (ESTILO IRONBERG) */}
+      {/* HERO COM DEGRADÊ VERMELHO NO TOPO */}
       <section className="relative bg-gradient-to-b from-[#3b0608] via-[#140405] to-[#080808] pt-14 pb-20 lg:pt-20 lg:pb-24 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
@@ -270,10 +270,10 @@ export function App() {
 
             <div className="lg:col-span-5">
               <div className="rounded-2xl overflow-hidden border border-white/15 bg-[#121212] shadow-2xl">
-                <div className="aspect-[16/11] w-full bg-zinc-900 relative">
+                <div className="aspect-[16/10] w-full bg-zinc-900 relative">
                   <img
-                    src="/ctzhn-foto-01.webp"
-                    alt="Área de musculação do CT ZHN em Paulínia"
+                    src="/Modern CT ZHF Gym Exterior.png"
+                    alt="Fachada externa do CT ZHN em Paulínia"
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       e.currentTarget.style.display = 'none';
@@ -283,7 +283,7 @@ export function App() {
                 <div className="p-5 flex items-center justify-between gap-4 bg-[#111111] border-t border-white/10">
                   <div>
                     <p className="text-[11px] font-extrabold uppercase tracking-widest text-[#E11D24]">
-                      Unidade Bela Vista
+                      Unidade Principal • Bela Vista
                     </p>
                     <p className="text-sm font-bold text-white mt-0.5">
                       Av. Paulista, 609 • Seg–Sex 04h30–24h
@@ -297,7 +297,7 @@ export function App() {
         </div>
       </section>
 
-      {/* FAIXA MARQUEE (ESTILO IRONBERG) */}
+      {/* FAIXA MARQUEE */}
       <div className="bg-[#120405] border-y border-[#E11D24]/30 py-3.5 overflow-hidden">
         <div className="animate-marquee">
           {[...marqueeItems, ...marqueeItems].map((label, idx) => (
@@ -311,7 +311,7 @@ export function App() {
         </div>
       </div>
 
-      {/* INFRAESTRUTURA + CARDS CHANFRADOS (PANOBIANCO + IRONBERG) */}
+      {/* INFRAESTRUTURA + CARDS CHANFRADOS */}
       <section
         id="infraestrutura"
         className="py-20 bg-gradient-to-b from-[#2a0507] via-[#110304] to-[#080808]"
@@ -331,7 +331,6 @@ export function App() {
             </p>
           </div>
 
-          {/* 3 Cards Chanfrados com Números de Destaque */}
           <div className="grid md:grid-cols-3 gap-6 mb-10">
             <div
               style={chamferCardStyle}
@@ -373,7 +372,6 @@ export function App() {
             </div>
           </div>
 
-          {/* Grelha de Destaques da Estrutura */}
           <div className="grid sm:grid-cols-3 gap-5">
             <div className="rounded-xl bg-[#111111] border border-white/10 p-5 flex items-start gap-3.5">
               <Sparkles className="w-5 h-5 text-[#C8A96E] shrink-0 mt-0.5" />
@@ -502,7 +500,7 @@ export function App() {
         </div>
       </section>
 
-      {/* PLANOS (LAYOUT LATERAL + COLUNAS INSPIRADO NA PANOBIANCO) */}
+      {/* PLANOS */}
       <section id="planos" className="py-20 bg-[#080808] border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-8 items-start">
@@ -521,7 +519,6 @@ export function App() {
             </div>
 
             <div className="lg:col-span-8 grid md:grid-cols-3 gap-6">
-              {/* Plano Fidelidade */}
               <div className="rounded-2xl bg-[#E11D24] text-white p-6 flex flex-col justify-between">
                 <div>
                   <span className="inline-block bg-black text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded mb-3">
@@ -561,7 +558,6 @@ export function App() {
                 </div>
               </div>
 
-              {/* Combo Kids */}
               <div className="rounded-2xl bg-[#180506] border border-[#E11D24]/40 text-white p-6 flex flex-col justify-between">
                 <div>
                   <span className="inline-block bg-white/10 text-[#C8A96E] text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded mb-3">
@@ -603,7 +599,6 @@ export function App() {
                 </div>
               </div>
 
-              {/* Convênios */}
               <div className="rounded-2xl bg-[#121212] border border-white/10 text-white p-6 flex flex-col justify-between">
                 <div>
                   <span className="inline-block bg-white/10 text-zinc-300 text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded mb-3">
