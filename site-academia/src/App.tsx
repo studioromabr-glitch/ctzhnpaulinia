@@ -26,37 +26,41 @@ export function App() {
   const [selectedDay, setSelectedDay] = useState<string>('SEG');
 
   const whatsappLink =
-    'https://wa.me/5519997014081?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20conhecer%20os%20planos%20da%20CT%20ZHN.';
+    'https://wa.me/5519997014081?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20conhecer%20os%20planos%20da%20CT%20ZHN%20em%20Paul%C3%ADnia.';
 
   const units = {
     'bela-vista': {
-      badge: 'Unidade Principal • Bela Vista',
-      name: 'Av. Paulista, 609 – São Luiz / Bela Vista',
-      cep: 'Paulínia – SP • CEP 13145-040',
+      badge: 'Unidade Principal • Paulínia – SP',
+      title: 'Unidade Principal — Paulínia',
+      address: 'Av. Paulista, 609 – São Luiz / Bela Vista, Paulínia – SP',
+      cep: 'CEP 13145-040 • Paulínia – SP',
       hoursWeek: 'Seg a Sex: 04h30 às 24h00',
       hoursWeekend: 'Sáb e Dom: 07h00 às 17h00',
       phone: '(19) 99701-4081',
+      image: '/Modern CT ZHF Gym Exterior_2.png',
       highlights: [
-        '+2.000 m² de estrutura anunciada',
+        '+2.000 m² de estrutura anunciada em Paulínia',
         'Complexo Aquático CT Acqua',
         'Sala de Pose & Lounge Recreativo',
-        'Entrada e estacionamento PCD',
+        'Entrada e estacionamento acessíveis PCD',
       ],
       mapUrl:
         'https://www.google.com/maps/search/?api=1&query=Av.+Paulista,+609,+Paulinia+-+SP',
     },
     'vila-bressani': {
-      badge: 'Unidade Paulínia • Vila Bressani',
-      name: 'Av. Brasil, 428 – Vila Bressani',
+      badge: 'Unidade Paulínia – SP • Vila Bressani',
+      title: 'Unidade Vila Bressani — Paulínia',
+      address: 'Av. Brasil, 428 – Vila Bressani, Paulínia – SP',
       cep: 'Paulínia – SP',
       hoursWeek: 'Seg a Sex: Horário Estendido',
       hoursWeekend: 'Sáb e Dom: Consulte a unidade',
       phone: '(19) 99701-4081',
+      image: '/Modern CT ZHF Gym Exterior_2.png',
       highlights: [
-        'Acesso integrado nas campanhas',
+        'Acesso integrado em Paulínia',
         'Musculação e treino funcional',
         'Aulas coletivas de alta energia',
-        'Atendimento próximo à região central',
+        'Atendimento na Vila Bressani',
       ],
       mapUrl:
         'https://www.google.com/maps/search/?api=1&query=Av.+Brasil,+428,+Vila+Bressani,+Paulinia+-+SP',
@@ -99,7 +103,7 @@ export function App() {
   };
 
   const marqueeItems = [
-    'CT ZHN PAULÍNIA',
+    'CT ZHN PAULÍNIA – SP',
     '+2.000 M² DE ESTRUTURA',
     'COMPLEXO CT ACQUA',
     'JIU-JITSU & MUAY THAI',
@@ -119,9 +123,9 @@ export function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
           <a href="#" className="flex items-center gap-3 shrink-0">
             <img
-              src="/logo-ctzhn.png"
-              alt="CT ZHN Centro de Treinamento"
-              className="h-12 w-auto object-contain"
+              src="/Muscular Doberman Gym Emblem.png"
+              alt="CT ZHN Centro de Treinamento Paulínia"
+              className="h-14 w-auto object-contain drop-shadow-[0_2px_10px_rgba(225,29,36,0.35)]"
             />
           </a>
 
@@ -139,7 +143,7 @@ export function App() {
               Planos
             </a>
             <a href="#unidades" className="hover:text-[#E11D24] transition-colors">
-              Unidades
+              Paulínia
             </a>
           </nav>
 
@@ -206,7 +210,7 @@ export function App() {
               onClick={() => setMobileMenuOpen(false)}
               className="block py-1.5 text-zinc-200 hover:text-[#E11D24]"
             >
-              Unidades
+              Paulínia
             </a>
             <a
               href={whatsappLink}
@@ -227,17 +231,18 @@ export function App() {
             <div className="lg:col-span-7 space-y-6">
               <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-black/50 border border-[#C8A96E]/40 text-[#C8A96E] text-xs font-bold uppercase tracking-wider">
                 <Star className="w-3.5 h-3.5 fill-[#C8A96E]" />
-                Avaliação 4,8 (177 avaliações) • Paulínia – SP
+                Paulínia – SP • Nota 4,8 (177 avaliações)
               </div>
 
               <h1 className="text-5xl sm:text-6xl lg:text-7xl font-black uppercase leading-[0.94] tracking-tight">
                 Centro de Treinamento{' '}
-                <span className="text-[#E11D24]">CT ZHN</span>
+                <span className="text-[#E11D24]">CT ZHN Paulínia</span>
               </h1>
 
               <p className="text-zinc-300 text-base sm:text-lg max-w-2xl leading-relaxed">
-                Ampla estrutura com mais de <strong className="text-white">2.000 m²</strong>{' '}
-                anunciados, musculação, Cross Training, artes marciais, complexo aquático{' '}
+                Ampla estrutura em <strong className="text-white">Paulínia</strong> com mais de{' '}
+                <strong className="text-white">2.000 m²</strong> anunciados, musculação, Cross
+                Training, artes marciais, complexo aquático{' '}
                 <strong className="text-white">CT Acqua</strong> e funcionamento de segunda a sexta
                 das <strong className="text-white">04h30 às 24h</strong>.
               </p>
@@ -253,7 +258,7 @@ export function App() {
                   href="#unidades"
                   className="px-7 py-3.5 rounded-full bg-white/10 hover:bg-white/15 border border-white/15 text-white text-xs sm:text-sm font-bold uppercase tracking-wider transition-colors"
                 >
-                  Endereços e Horários
+                  Unidade Principal • Paulínia
                 </a>
               </div>
 
@@ -272,8 +277,8 @@ export function App() {
               <div className="rounded-2xl overflow-hidden border border-white/15 bg-[#121212] shadow-2xl">
                 <div className="aspect-[16/10] w-full bg-zinc-900 relative">
                   <img
-                    src="/Modern CT ZHF Gym Exterior.png"
-                    alt="Fachada externa do CT ZHN em Paulínia"
+                    src="/Modern CT ZHF Gym Exterior_2.png"
+                    alt="Unidade Principal CT ZHN em Paulínia – SP"
                     className="w-full h-full object-cover"
                     onError={(e) => {
                       e.currentTarget.style.display = 'none';
@@ -283,13 +288,17 @@ export function App() {
                 <div className="p-5 flex items-center justify-between gap-4 bg-[#111111] border-t border-white/10">
                   <div>
                     <p className="text-[11px] font-extrabold uppercase tracking-widest text-[#E11D24]">
-                      Unidade Principal • Bela Vista
+                      Unidade Principal • Paulínia – SP
                     </p>
                     <p className="text-sm font-bold text-white mt-0.5">
                       Av. Paulista, 609 • Seg–Sex 04h30–24h
                     </p>
                   </div>
-                  <img src="/logo-ctzhn.png" alt="Logo CT ZHN" className="h-11 w-auto" />
+                  <img
+                    src="/Muscular Doberman Gym Emblem.png"
+                    alt="Logo CT ZHN"
+                    className="h-12 w-auto object-contain"
+                  />
                 </div>
               </div>
             </div>
@@ -325,9 +334,9 @@ export function App() {
               De ponta para um treino de verdade em Paulínia
             </p>
             <p className="text-zinc-400 text-sm sm:text-base mt-3 leading-relaxed">
-              Espaços amplos com mais de 2.000 m² anunciados, áreas de musculação, sala de pose,
-              lounge recreativo, complexo aquático CT Acqua e entrada e estacionamento acessíveis
-              para cadeirantes.
+              Espaços amplos com mais de 2.000 m² anunciados em Paulínia, áreas de musculação, sala
+              de pose, lounge recreativo, complexo aquático CT Acqua e entrada e estacionamento
+              acessíveis para cadeirantes.
             </p>
           </div>
 
@@ -340,7 +349,8 @@ export function App() {
               <div>
                 <div className="h-px bg-white/30 my-4" />
                 <p className="text-sm font-semibold text-white/95">
-                  Ampla estrutura com musculação, sala de pose, lounge recreativo e acessibilidade.
+                  Ampla estrutura em Paulínia com musculação, sala de pose, lounge recreativo e
+                  acessibilidade.
                 </p>
               </div>
             </div>
@@ -353,7 +363,8 @@ export function App() {
               <div>
                 <div className="h-px bg-white/30 my-4" />
                 <p className="text-sm font-semibold text-white/95">
-                  Horário estendido de segunda a sexta e funcionamento aos sábados e domingos (07h às 17h).
+                  Horário estendido de segunda a sexta e funcionamento aos sábados e domingos (07h às
+                  17h).
                 </p>
               </div>
             </div>
@@ -411,7 +422,7 @@ export function App() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
             <span className="text-xs font-extrabold uppercase tracking-widest text-[#E11D24]">
-              Treino e Aulas
+              Treino e Aulas • Paulínia
             </span>
             <h2 className="text-4xl sm:text-5xl font-black uppercase mt-1">Modalidades</h2>
           </div>
@@ -506,7 +517,7 @@ export function App() {
           <div className="grid lg:grid-cols-12 gap-8 items-start">
             <div className="lg:col-span-4 space-y-4">
               <span className="text-xs font-extrabold uppercase tracking-widest text-[#E11D24]">
-                Planos e Convênios
+                Planos e Convênios • Paulínia
               </span>
               <h2 className="text-4xl sm:text-5xl font-black uppercase leading-none">
                 Escolha seu plano e comece a treinar.
@@ -644,7 +655,7 @@ export function App() {
         </div>
       </section>
 
-      {/* UNIDADES E HORÁRIOS */}
+      {/* UNIDADE PRINCIPAL & PAULÍNIA */}
       <section id="unidades" className="py-20 bg-[#0D0D0D] border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
@@ -653,7 +664,7 @@ export function App() {
                 Paulínia – SP
               </span>
               <h2 className="text-4xl sm:text-5xl font-black uppercase mt-1">
-                Endereços e Horários
+                Unidade Principal — Paulínia
               </h2>
             </div>
 
@@ -667,7 +678,7 @@ export function App() {
                     : 'bg-white/5 text-zinc-400 hover:text-white'
                 }`}
               >
-                Av. Paulista, 609
+                Unidade Principal (Paulínia)
               </button>
               <button
                 type="button"
@@ -678,24 +689,26 @@ export function App() {
                     : 'bg-white/5 text-zinc-400 hover:text-white'
                 }`}
               >
-                Av. Brasil, 428
+                Vila Bressani (Paulínia)
               </button>
             </div>
           </div>
 
-          <div className="rounded-2xl bg-[#131313] border border-white/10 p-6 sm:p-10 grid lg:grid-cols-2 gap-8 items-center">
-            <div className="space-y-5">
+          <div className="rounded-2xl bg-[#131313] border border-white/10 p-6 sm:p-10 grid lg:grid-cols-12 gap-8 items-center">
+            <div className="lg:col-span-7 space-y-5">
               <span className="inline-block text-xs font-extrabold uppercase tracking-widest text-[#C8A96E]">
                 {units[selectedUnit].badge}
               </span>
-              <h3 className="text-2xl sm:text-3xl font-black uppercase">
-                {units[selectedUnit].name}
+              <h3 className="text-2xl sm:text-4xl font-black uppercase">
+                {units[selectedUnit].title}
               </h3>
 
               <div className="space-y-3 text-sm text-zinc-300">
                 <p className="flex items-start gap-2.5">
                   <MapPin className="w-4 h-4 text-[#E11D24] shrink-0 mt-1" />
-                  <span>{units[selectedUnit].cep}</span>
+                  <span>
+                    {units[selectedUnit].address} • {units[selectedUnit].cep}
+                  </span>
                 </p>
                 <p className="flex items-start gap-2.5">
                   <Clock className="w-4 h-4 text-[#E11D24] shrink-0 mt-1" />
@@ -725,7 +738,7 @@ export function App() {
                   rel="noreferrer"
                   className="px-5 py-3 rounded-lg bg-white text-black hover:bg-zinc-200 text-xs font-extrabold uppercase tracking-wider inline-flex items-center gap-1.5"
                 >
-                  Ver no Mapa
+                  Ver no Mapa • Paulínia
                   <ArrowUpRight className="w-4 h-4" />
                 </a>
                 <a
@@ -739,24 +752,30 @@ export function App() {
               </div>
             </div>
 
-            <div className="rounded-xl bg-black/60 border border-white/10 p-7 text-center space-y-3">
-              <img src="/logo-ctzhn.png" alt="CT ZHN" className="h-20 w-auto mx-auto" />
-              <p className="text-xs font-extrabold uppercase tracking-widest text-[#C8A96E]">
-                @ctzhnpaulinia
-              </p>
-              <p className="text-xs sm:text-sm text-zinc-400 max-w-sm mx-auto">
-                Confira campanhas, novidades das unidades e atualizações de planos no perfil oficial
-                do CT ZHN.
-              </p>
-              <a
-                href="https://www.instagram.com/ctzhnpaulinia/"
-                target="_blank"
-                rel="noreferrer"
-                className="inline-flex items-center gap-1.5 px-5 py-2.5 rounded-lg border border-white/20 hover:border-[#E11D24] text-xs font-extrabold uppercase tracking-wider"
-              >
-                Abrir @ctzhnpaulinia
-                <ArrowUpRight className="w-4 h-4" />
-              </a>
+            <div className="lg:col-span-5 space-y-4">
+              <div className="rounded-xl overflow-hidden border border-white/15 bg-black">
+                <img
+                  src={units[selectedUnit].image}
+                  alt={units[selectedUnit].title}
+                  className="w-full aspect-[16/10] object-cover"
+                />
+              </div>
+
+              <div className="rounded-xl bg-black/60 border border-white/10 p-5 flex items-center justify-between gap-4">
+                <img
+                  src="/Muscular Doberman Gym Emblem.png"
+                  alt="CT ZHN Paulínia"
+                  className="h-14 w-auto object-contain shrink-0"
+                />
+                <div className="text-left">
+                  <p className="text-xs font-extrabold uppercase tracking-widest text-[#C8A96E]">
+                    Paulínia – SP • @ctzhnpaulinia
+                  </p>
+                  <p className="text-xs text-zinc-400 mt-0.5">
+                    Unidade Principal na Av. Paulista, 609 e unidade na Av. Brasil, 428.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -766,13 +785,17 @@ export function App() {
       <footer className="bg-black border-t border-white/10 py-10 text-xs text-zinc-400">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
-            <img src="/logo-ctzhn.png" alt="CT ZHN" className="h-9 w-auto" />
+            <img
+              src="/Muscular Doberman Gym Emblem.png"
+              alt="CT ZHN Paulínia"
+              className="h-11 w-auto object-contain"
+            />
             <div>
-              <p className="font-extrabold uppercase text-zinc-200">CT ZHN Paulínia</p>
-              <p>Av. Paulista, 609 (Bela Vista) • Av. Brasil, 428 (Vila Bressani)</p>
+              <p className="font-extrabold uppercase text-zinc-200">CT ZHN Paulínia – SP</p>
+              <p>Unidade Principal: Av. Paulista, 609 (Bela Vista) • Av. Brasil, 428 (Vila Bressani)</p>
             </div>
           </div>
-          <p>Tel / WhatsApp: (19) 99701-4081</p>
+          <p>Tel / WhatsApp: (19) 99701-4081 • Paulínia – SP</p>
         </div>
       </footer>
     </div>
