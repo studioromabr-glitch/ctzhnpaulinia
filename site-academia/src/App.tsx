@@ -118,7 +118,6 @@ export function App() {
 
   return (
     <div className="min-h-screen bg-[#080808] text-white font-sans antialiased">
-      {/* HEADER FIXO */}
       <header className="sticky top-0 z-50 bg-[#080808]/95 backdrop-blur-md border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between gap-4">
           <a href="#" className="flex items-center gap-3 shrink-0">
@@ -224,7 +223,6 @@ export function App() {
         )}
       </header>
 
-      {/* HERO COM DEGRADÊ VERMELHO NO TOPO */}
       <section className="relative bg-gradient-to-b from-[#3b0608] via-[#140405] to-[#080808] pt-14 pb-20 lg:pt-20 lg:pb-24 border-b border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-10 items-center">
@@ -306,7 +304,6 @@ export function App() {
         </div>
       </section>
 
-      {/* FAIXA MARQUEE */}
       <div className="bg-[#120405] border-y border-[#E11D24]/30 py-3.5 overflow-hidden">
         <div className="animate-marquee">
           {[...marqueeItems, ...marqueeItems].map((label, idx) => (
@@ -320,7 +317,6 @@ export function App() {
         </div>
       </div>
 
-      {/* INFRAESTRUTURA + CARDS CHANFRADOS */}
       <section
         id="infraestrutura"
         className="py-20 bg-gradient-to-b from-[#2a0507] via-[#110304] to-[#080808]"
@@ -417,7 +413,6 @@ export function App() {
         </div>
       </section>
 
-      {/* MODALIDADES */}
       <section id="modalidades" className="py-20 bg-[#080808] border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12">
@@ -463,7 +458,6 @@ export function App() {
         </div>
       </section>
 
-      {/* GRADE DE AULAS COLETIVAS */}
       <section id="horarios" className="py-20 bg-[#0D0D0D] border-t border-white/10">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-10">
@@ -511,7 +505,6 @@ export function App() {
         </div>
       </section>
 
-      {/* PLANOS */}
       <section id="planos" className="py-20 bg-[#080808] border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-8 items-start">
@@ -655,7 +648,6 @@ export function App() {
         </div>
       </section>
 
-      {/* UNIDADE PRINCIPAL & PAULÍNIA */}
       <section id="unidades" className="py-20 bg-[#0D0D0D] border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
@@ -781,7 +773,6 @@ export function App() {
         </div>
       </section>
 
-      {/* RODAPÉ */}
       <footer className="bg-black border-t border-white/10 py-10 text-xs text-zinc-400">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
