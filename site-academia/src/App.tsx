@@ -55,7 +55,7 @@ export function App() {
       hoursWeek: 'Seg a Sex: Horário Estendido',
       hoursWeekend: 'Sáb e Dom: Consulte a unidade',
       phone: '(19) 99701-4081',
-      image: '/Modern CT ZHF Gym Exterior_2.png',
+      image: '/Modern CT ZHF Gym Exterior.png',
       highlights: [
         'Acesso integrado em Paulínia',
         'Musculação e treino funcional',
@@ -275,7 +275,7 @@ export function App() {
               <div className="rounded-2xl overflow-hidden border border-white/15 bg-[#121212] shadow-2xl">
                 <div className="aspect-[16/10] w-full bg-zinc-900 relative">
                   <img
-                    src="/Modern CT ZHF Gym Exterior_2.png"
+                    src="/Modern CT ZHF Gym Exterior.png"
                     alt="Unidade Principal CT ZHN em Paulínia – SP"
                     className="w-full h-full object-cover"
                     onError={(e) => {
