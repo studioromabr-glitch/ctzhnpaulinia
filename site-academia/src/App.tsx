@@ -24,6 +24,7 @@ import {
   Lock,
   Loader2,
 } from 'lucide-react';
+import PixelCard from './components/PixelCard';
 
 type UnitKey = 'bela-vista' | 'vila-bressani';
 type PaymentMethod = 'pix' | 'cartao' | 'convenio';
@@ -245,10 +246,32 @@ export function App() {
     'WELLHUB & TOTALPASS',
   ];
 
-  const chamferCardStyle: React.CSSProperties = {
-    clipPath:
-      'polygon(24px 0%, calc(100% - 24px) 0%, 100% 24px, 100% 100%, 0% 100%, 0% 24px)',
-  };
+  const infraHighlights = [
+    {
+      metric: '+2.000 m²',
+      description:
+        'Ampla estrutura em Paulínia com musculação, sala de pose, lounge recreativo e acessibilidade.',
+      colors: ['#fecdd3', '#f87171', '#e11d24'],
+      glowColor: '#e11d24',
+      delay: 0,
+    },
+    {
+      metric: '04h30–24h',
+      description:
+        'Horário estendido de segunda a sexta e funcionamento aos sábados e domingos (07h às 17h).',
+      colors: ['#fef08a', '#f87171', '#e11d24'],
+      glowColor: '#e11d24',
+      delay: 120,
+    },
+    {
+      metric: '4,8 ★',
+      description:
+        '177 avaliações na unidade principal em Paulínia e duas unidades integradas.',
+      colors: ['#f8fafc', '#fca5a5', '#e11d24'],
+      glowColor: '#e11d24',
+      delay: 240,
+    },
+  ];
 
   return (
     <div className="min-h-screen bg-[#080808] text-white font-sans antialiased">
@@ -453,7 +476,7 @@ export function App() {
         </div>
       </div>
 
-      {/* INFRAESTRUTURA */}
+      {/* INFRAESTRUTURA COM PIXELCARD */}
       <section
         id="infraestrutura"
         className="py-20 bg-gradient-to-b from-[#2a0507] via-[#110304] to-[#080808]"
@@ -474,46 +497,42 @@ export function App() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 mb-10">
-            <div
-              style={chamferCardStyle}
-              className="bg-gradient-to-b from-[#E11D24] to-[#69090d] p-8 flex flex-col justify-between min-h-[240px]"
-            >
-              <div className="text-5xl sm:text-6xl font-black tracking-tight">+2.000 m²</div>
-              <div>
-                <div className="h-px bg-white/30 my-4" />
-                <p className="text-sm font-semibold text-white/95">
-                  Ampla estrutura em Paulínia com musculação, sala de pose, lounge recreativo e
-                  acessibilidade.
-                </p>
-              </div>
-            </div>
-
-            <div
-              style={chamferCardStyle}
-              className="bg-gradient-to-b from-[#E11D24] to-[#69090d] p-8 flex flex-col justify-between min-h-[240px]"
-            >
-              <div className="text-5xl sm:text-6xl font-black tracking-tight">04h30–24h</div>
-              <div>
-                <div className="h-px bg-white/30 my-4" />
-                <p className="text-sm font-semibold text-white/95">
-                  Horário estendido de segunda a sexta e funcionamento aos sábados e domingos (07h às
-                  17h).
-                </p>
-              </div>
-            </div>
-
-            <div
-              style={chamferCardStyle}
-              className="bg-gradient-to-b from-[#E11D24] to-[#69090d] p-8 flex flex-col justify-between min-h-[240px]"
-            >
-              <div className="text-5xl sm:text-6xl font-black tracking-tight">4,8 ★</div>
-              <div>
-                <div className="h-px bg-white/30 my-4" />
-                <p className="text-sm font-semibold text-white/95">
-                  177 avaliações na unidade principal em Paulínia e duas unidades integradas.
-                </p>
-              </div>
-            </div>
+            {infraHighlights.map((item) => (
+              <PixelCard
+                key={item.metric}
+                colors={item.colors}
+                glowColor={item.glowColor}
+                shape="square"
+                origin="pointer"
+                gap={5}
+                pixelSize={2.5}
+                speed={40}
+                revealDuration={600}
+                spotlight={0.6}
+                glow={0.55}
+                opacity={0.45}
+                fade={0.35}
+                trigger="hover"
+                radius={24}
+                clickPulse
+                intro
+                introDelay={item.delay}
+                theme="dark"
+                className="w-full min-h-[240px]"
+              >
+                <div className="w-full h-full p-8 flex flex-col justify-between text-left bg-gradient-to-b from-[#E11D24]/35 to-[#69090d]/45">
+                  <div className="text-5xl sm:text-6xl font-black tracking-tight text-white">
+                    {item.metric}
+                  </div>
+                  <div>
+                    <div className="h-px bg-white/30 my-4" />
+                    <p className="text-sm font-semibold text-white/95 leading-relaxed">
+                      {item.description}
+                    </p>
+                  </div>
+                </div>
+              </PixelCard>
+            ))}
           </div>
 
           <div className="grid sm:grid-cols-3 gap-5">
@@ -957,7 +976,6 @@ export function App() {
 
             {checkoutStep === 'form' && (
               <form onSubmit={handleProcessPayment} className="p-6 space-y-5">
-                {/* Seletor de Plano dentro do Checkout */}
                 <div className="rounded-xl bg-black/60 border border-[#E11D24]/40 p-4 flex items-center justify-between gap-4">
                   <div className="flex-1">
                     <label className="block text-[10px] font-extrabold uppercase tracking-widest text-[#C8A96E] mb-1">
