@@ -37,7 +37,7 @@ export function App() {
       hoursWeek: 'Seg a Sex: 04h30 às 24h00',
       hoursWeekend: 'Sáb e Dom: 07h00 às 17h00',
       phone: '(19) 99701-4081',
-      image: '/Modern CT ZHF Gym Exterior_2.png',
+      image: '/Modern CT ZHF Gym Exterior.png',
       highlights: [
         '+2.000 m² de estrutura anunciada em Paulínia',
         'Complexo Aquático CT Acqua',
