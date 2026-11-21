@@ -39,7 +39,7 @@ export function App() {
       phone: '(19) 99701-4081',
       image: '/Modern CT ZHF Gym Exterior.png',
       highlights: [
-        '+2.000 m² de estrutura anunciada em Paulínia',
+        '+2.000 m² de estrutura em Paulínia',
         'Complexo Aquático CT Acqua',
         'Sala de Pose & Lounge Recreativo',
         'Entrada e estacionamento acessíveis PCD',
@@ -330,7 +330,7 @@ export function App() {
               De ponta para um treino de verdade em Paulínia
             </p>
             <p className="text-zinc-400 text-sm sm:text-base mt-3 leading-relaxed">
-              Espaços amplos com mais de 2.000 m² anunciados em Paulínia, áreas de musculação, sala
+              Espaços amplos com mais de 2.000 m² em Paulínia, áreas de musculação, sala
               de pose, lounge recreativo, complexo aquático CT Acqua e entrada e estacionamento
               acessíveis para cadeirantes.
             </p>
