@@ -246,32 +246,10 @@ export function App() {
     'WELLHUB & TOTALPASS',
   ];
 
-  const infraHighlights = [
-    {
-      metric: '+2.000 m²',
-      description:
-        'Ampla estrutura em Paulínia com musculação, sala de pose, lounge recreativo e acessibilidade.',
-      colors: ['#fecdd3', '#f87171', '#e11d24'],
-      glowColor: '#e11d24',
-      delay: 0,
-    },
-    {
-      metric: '04h30–24h',
-      description:
-        'Horário estendido de segunda a sexta e funcionamento aos sábados e domingos (07h às 17h).',
-      colors: ['#fef08a', '#f87171', '#e11d24'],
-      glowColor: '#e11d24',
-      delay: 120,
-    },
-    {
-      metric: '4,8 ★',
-      description:
-        '177 avaliações na unidade principal em Paulínia e duas unidades integradas.',
-      colors: ['#f8fafc', '#fca5a5', '#e11d24'],
-      glowColor: '#e11d24',
-      delay: 240,
-    },
-  ];
+  const chamferCardStyle: React.CSSProperties = {
+    clipPath:
+      'polygon(24px 0%, calc(100% - 24px) 0%, 100% 24px, 100% 100%, 0% 100%, 0% 24px)',
+  };
 
   return (
     <div className="min-h-screen bg-[#080808] text-white font-sans antialiased">
@@ -476,7 +454,7 @@ export function App() {
         </div>
       </div>
 
-      {/* INFRAESTRUTURA COM PIXELCARD */}
+      {/* INFRAESTRUTURA */}
       <section
         id="infraestrutura"
         className="py-20 bg-gradient-to-b from-[#2a0507] via-[#110304] to-[#080808]"
@@ -497,42 +475,46 @@ export function App() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 mb-10">
-            {infraHighlights.map((item) => (
-              <PixelCard
-                key={item.metric}
-                colors={item.colors}
-                glowColor={item.glowColor}
-                shape="square"
-                origin="pointer"
-                gap={5}
-                pixelSize={2.5}
-                speed={40}
-                revealDuration={600}
-                spotlight={0.6}
-                glow={0.55}
-                opacity={0.45}
-                fade={0.35}
-                trigger="hover"
-                radius={24}
-                clickPulse
-                intro
-                introDelay={item.delay}
-                theme="dark"
-                className="w-full min-h-[240px]"
-              >
-                <div className="w-full h-full p-8 flex flex-col justify-between text-left bg-gradient-to-b from-[#E11D24]/35 to-[#69090d]/45">
-                  <div className="text-5xl sm:text-6xl font-black tracking-tight text-white">
-                    {item.metric}
-                  </div>
-                  <div>
-                    <div className="h-px bg-white/30 my-4" />
-                    <p className="text-sm font-semibold text-white/95 leading-relaxed">
-                      {item.description}
-                    </p>
-                  </div>
-                </div>
-              </PixelCard>
-            ))}
+            <div
+              style={chamferCardStyle}
+              className="bg-gradient-to-b from-[#E11D24] to-[#69090d] p-8 flex flex-col justify-between min-h-[240px]"
+            >
+              <div className="text-5xl sm:text-6xl font-black tracking-tight">+2.000 m²</div>
+              <div>
+                <div className="h-px bg-white/30 my-4" />
+                <p className="text-sm font-semibold text-white/95">
+                  Ampla estrutura em Paulínia com musculação, sala de pose, lounge recreativo e
+                  acessibilidade.
+                </p>
+              </div>
+            </div>
+
+            <div
+              style={chamferCardStyle}
+              className="bg-gradient-to-b from-[#E11D24] to-[#69090d] p-8 flex flex-col justify-between min-h-[240px]"
+            >
+              <div className="text-5xl sm:text-6xl font-black tracking-tight">04h30–24h</div>
+              <div>
+                <div className="h-px bg-white/30 my-4" />
+                <p className="text-sm font-semibold text-white/95">
+                  Horário estendido de segunda a sexta e funcionamento aos sábados e domingos (07h às
+                  17h).
+                </p>
+              </div>
+            </div>
+
+            <div
+              style={chamferCardStyle}
+              className="bg-gradient-to-b from-[#E11D24] to-[#69090d] p-8 flex flex-col justify-between min-h-[240px]"
+            >
+              <div className="text-5xl sm:text-6xl font-black tracking-tight">4,8 ★</div>
+              <div>
+                <div className="h-px bg-white/30 my-4" />
+                <p className="text-sm font-semibold text-white/95">
+                  177 avaliações na unidade principal em Paulínia e duas unidades integradas.
+                </p>
+              </div>
+            </div>
           </div>
 
           <div className="grid sm:grid-cols-3 gap-5">
@@ -663,7 +645,7 @@ export function App() {
         </div>
       </section>
 
-      {/* PLANOS — TODOS ABREM O CHECKOUT TRANSPARENTE */}
+      {/* PLANOS COM PIXELCARD + CHECKOUT TRANSPARENTE */}
       <section id="planos" className="py-20 bg-[#080808] border-t border-white/10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-8 items-start">
@@ -675,133 +657,200 @@ export function App() {
                 Escolha seu plano e finalize no site.
               </h2>
               <p className="text-sm text-zinc-400 leading-relaxed">
-                Clique em qualquer plano para abrir o <strong className="text-white">Checkout Online</strong> com geração instantânea de{' '}
+                Clique em qualquer plano para abrir o{' '}
+                <strong className="text-white">Checkout Online</strong> com geração instantânea de{' '}
                 <strong className="text-white">QR Code PIX</strong> ou pagamento via{' '}
                 <strong className="text-white">Cartão de Crédito</strong>.
               </p>
             </div>
 
             <div className="lg:col-span-8 grid md:grid-cols-3 gap-6">
-              {/* Card Plano 1 */}
-              <div className="rounded-2xl bg-[#E11D24] text-white p-6 flex flex-col justify-between">
-                <div>
-                  <span className="inline-block bg-black text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded mb-3">
-                    Campanha Divulgada
-                  </span>
-                  <h3 className="text-2xl font-black uppercase">1º Mês Promocional</h3>
-                  <p className="text-xs text-white/90 mt-1">
-                    Fidelidade mínima de 5 meses • Passa a R$ 159,90 depois
-                  </p>
-                  <ul className="mt-5 space-y-2.5 text-xs font-semibold text-white/95">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" />
-                      1º mês a R$ 39,90 em plano com fidelidade mínima de 5 meses
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" />
-                      Mensalidade de R$ 159,90 após o período promocional
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" />
-                      Acesso completo em Paulínia
-                    </li>
-                  </ul>
-                </div>
+              {/* PLANO 1 — 1º Mês Promocional */}
+              <PixelCard
+                colors={['#ffffff', '#fecdd3', '#fda4af']}
+                glowColor="#ffffff"
+                shape="square"
+                origin="pointer"
+                gap={5}
+                pixelSize={2}
+                speed={40}
+                revealDuration={600}
+                spotlight={0.55}
+                glow={0.5}
+                opacity={0.4}
+                fade={0.35}
+                trigger="hover"
+                radius={20}
+                clickPulse
+                intro
+                introDelay={0}
+                theme="dark"
+                className="w-full h-full"
+              >
+                <div className="w-full h-full bg-gradient-to-b from-[#E11D24]/95 to-[#b31218]/95 text-white p-6 flex flex-col justify-between text-left">
+                  <div>
+                    <span className="inline-block bg-black text-white text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded mb-3">
+                      Campanha Divulgada
+                    </span>
+                    <h3 className="text-2xl font-black uppercase">1º Mês Promocional</h3>
+                    <p className="text-xs text-white/90 mt-1">
+                      Fidelidade mínima de 5 meses • Passa a R$ 159,90 depois
+                    </p>
+                    <ul className="mt-5 space-y-2.5 text-xs font-semibold text-white/95">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" />
+                        1º mês a R$ 39,90 em plano com fidelidade mínima de 5 meses
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" />
+                        Mensalidade de R$ 159,90 após o período promocional
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-4 h-4 shrink-0 mt-0.5" />
+                        Acesso completo em Paulínia
+                      </li>
+                    </ul>
+                  </div>
 
-                <div className="mt-8 pt-4 border-t border-white/25">
-                  <p className="text-[11px] uppercase font-bold tracking-wider">1º Mês</p>
-                  <p className="text-4xl font-black">R$ 39,90</p>
-                  <button
-                    type="button"
-                    onClick={() => openCheckoutWithPlan(plansList[0])}
-                    className="mt-4 w-full text-center bg-black hover:bg-zinc-900 text-white text-xs font-extrabold uppercase tracking-wider py-3 rounded-lg transition-colors cursor-pointer"
-                  >
-                    Pagar com PIX ou Cartão
-                  </button>
+                  <div className="mt-8 pt-4 border-t border-white/25">
+                    <p className="text-[11px] uppercase font-bold tracking-wider">1º Mês</p>
+                    <p className="text-4xl font-black">R$ 39,90</p>
+                    <button
+                      type="button"
+                      onClick={() => openCheckoutWithPlan(plansList[0])}
+                      className="mt-4 w-full text-center bg-black hover:bg-zinc-900 text-white text-xs font-extrabold uppercase tracking-wider py-3 rounded-lg transition-colors cursor-pointer"
+                    >
+                      Pagar com PIX ou Cartão
+                    </button>
+                  </div>
                 </div>
-              </div>
+              </PixelCard>
 
-              {/* Card Plano 2 */}
-              <div className="rounded-2xl bg-[#180506] border border-[#E11D24]/40 text-white p-6 flex flex-col justify-between">
-                <div>
-                  <span className="inline-block bg-white/10 text-[#C8A96E] text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded mb-3">
-                    Combo Especial
-                  </span>
-                  <h3 className="text-2xl font-black uppercase">Natação + Jiu-Jitsu Kids</h3>
-                  <p className="text-xs text-zinc-400 mt-1">
-                    Desenvolvimento aquático e marcial infantil
-                  </p>
-                  <ul className="mt-5 space-y-2.5 text-xs text-zinc-200">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-[#E11D24] shrink-0 mt-0.5" />
-                      Aulas de Natação no complexo CT Acqua
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-[#E11D24] shrink-0 mt-0.5" />
-                      Aulas de Jiu-Jitsu Kids
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-[#E11D24] shrink-0 mt-0.5" />
-                      Consulte turmas e horários vigentes
-                    </li>
-                  </ul>
-                </div>
+              {/* PLANO 2 — Combo Natação + Jiu-Jitsu Kids */}
+              <PixelCard
+                colors={['#fef08a', '#f87171', '#e11d24']}
+                glowColor="#e11d24"
+                shape="square"
+                origin="pointer"
+                gap={5}
+                pixelSize={2}
+                speed={35}
+                revealDuration={600}
+                spotlight={0.5}
+                glow={0.5}
+                opacity={0.4}
+                fade={0.35}
+                trigger="hover"
+                radius={20}
+                clickPulse
+                intro
+                introDelay={120}
+                theme="dark"
+                className="w-full h-full border border-[#E11D24]/40"
+              >
+                <div className="w-full h-full bg-[#180506]/90 text-white p-6 flex flex-col justify-between text-left">
+                  <div>
+                    <span className="inline-block bg-white/10 text-[#C8A96E] text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded mb-3">
+                      Combo Especial
+                    </span>
+                    <h3 className="text-2xl font-black uppercase">Natação + Jiu-Jitsu Kids</h3>
+                    <p className="text-xs text-zinc-400 mt-1">
+                      Desenvolvimento aquático e marcial infantil
+                    </p>
+                    <ul className="mt-5 space-y-2.5 text-xs text-zinc-200">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-[#E11D24] shrink-0 mt-0.5" />
+                        Aulas de Natação no complexo CT Acqua
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-[#E11D24] shrink-0 mt-0.5" />
+                        Aulas de Jiu-Jitsu Kids
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-[#E11D24] shrink-0 mt-0.5" />
+                        Consulte turmas e horários vigentes
+                      </li>
+                    </ul>
+                  </div>
 
-                <div className="mt-8 pt-4 border-t border-white/10">
-                  <p className="text-[11px] uppercase font-bold tracking-wider text-zinc-400">
-                    Combo Divulgado
-                  </p>
-                  <p className="text-4xl font-black text-white">R$ 399,90</p>
-                  <button
-                    type="button"
-                    onClick={() => openCheckoutWithPlan(plansList[1])}
-                    className="mt-4 w-full text-center bg-[#E11D24] hover:bg-[#c5161d] text-white text-xs font-extrabold uppercase tracking-wider py-3 rounded-lg transition-colors cursor-pointer"
-                  >
-                    Assinar Combo Kids
-                  </button>
+                  <div className="mt-8 pt-4 border-t border-white/10">
+                    <p className="text-[11px] uppercase font-bold tracking-wider text-zinc-400">
+                      Combo Divulgado
+                    </p>
+                    <p className="text-4xl font-black text-white">R$ 399,90</p>
+                    <button
+                      type="button"
+                      onClick={() => openCheckoutWithPlan(plansList[1])}
+                      className="mt-4 w-full text-center bg-[#E11D24] hover:bg-[#c5161d] text-white text-xs font-extrabold uppercase tracking-wider py-3 rounded-lg transition-colors cursor-pointer"
+                    >
+                      Assinar Combo Kids
+                    </button>
+                  </div>
                 </div>
-              </div>
+              </PixelCard>
 
-              {/* Card Plano 3 */}
-              <div className="rounded-2xl bg-[#121212] border border-white/10 text-white p-6 flex flex-col justify-between">
-                <div>
-                  <span className="inline-block bg-white/10 text-zinc-300 text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded mb-3">
-                    Parceiros
-                  </span>
-                  <h3 className="text-2xl font-black uppercase">Wellhub & TotalPass</h3>
-                  <p className="text-xs text-zinc-400 mt-1">
-                    Treine com o benefício da sua empresa
-                  </p>
-                  <ul className="mt-5 space-y-2.5 text-xs text-zinc-200">
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-[#C8A96E] shrink-0 mt-0.5" />
-                      Wellhub a partir dos planos Basic+ e Silver+
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-[#C8A96E] shrink-0 mt-0.5" />
-                      Também consta na rede TotalPass
-                    </li>
-                    <li className="flex items-start gap-2">
-                      <CheckCircle2 className="w-4 h-4 text-[#C8A96E] shrink-0 mt-0.5" />
-                      Liberação rápida na recepção
-                    </li>
-                  </ul>
-                </div>
+              {/* PLANO 3 — Wellhub & TotalPass */}
+              <PixelCard
+                colors={['#f8fafc', '#f1f5f9', '#cbd5e1']}
+                glowColor="#cbd5e1"
+                shape="square"
+                origin="center"
+                gap={5}
+                pixelSize={2}
+                speed={35}
+                revealDuration={600}
+                spotlight={0.5}
+                glow={0.5}
+                opacity={0.35}
+                fade={0.5}
+                trigger="hover"
+                radius={20}
+                clickPulse
+                intro
+                introDelay={240}
+                theme="dark"
+                className="w-full h-full border border-white/10"
+              >
+                <div className="w-full h-full bg-[#121212]/90 text-white p-6 flex flex-col justify-between text-left">
+                  <div>
+                    <span className="inline-block bg-white/10 text-zinc-300 text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded mb-3">
+                      Parceiros
+                    </span>
+                    <h3 className="text-2xl font-black uppercase">Wellhub & TotalPass</h3>
+                    <p className="text-xs text-zinc-400 mt-1">
+                      Treine com o benefício da sua empresa
+                    </p>
+                    <ul className="mt-5 space-y-2.5 text-xs text-zinc-200">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-[#C8A96E] shrink-0 mt-0.5" />
+                        Wellhub a partir dos planos Basic+ e Silver+
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-[#C8A96E] shrink-0 mt-0.5" />
+                        Também consta na rede TotalPass
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-4 h-4 text-[#C8A96E] shrink-0 mt-0.5" />
+                        Liberação rápida na recepção
+                      </li>
+                    </ul>
+                  </div>
 
-                <div className="mt-8 pt-4 border-t border-white/10">
-                  <p className="text-[11px] uppercase font-bold tracking-wider text-zinc-400">
-                    Check-in via App
-                  </p>
-                  <p className="text-2xl font-black text-white uppercase">Convênios</p>
-                  <button
-                    type="button"
-                    onClick={() => openCheckoutWithPlan(plansList[2])}
-                    className="mt-4 w-full text-center bg-white/10 hover:bg-white/20 text-white text-xs font-extrabold uppercase tracking-wider py-3 rounded-lg transition-colors cursor-pointer"
-                  >
-                    Validar Convênio
-                  </button>
+                  <div className="mt-8 pt-4 border-t border-white/10">
+                    <p className="text-[11px] uppercase font-bold tracking-wider text-zinc-400">
+                      Check-in via App
+                    </p>
+                    <p className="text-2xl font-black text-white uppercase">Convênios</p>
+                    <button
+                      type="button"
+                      onClick={() => openCheckoutWithPlan(plansList[2])}
+                      className="mt-4 w-full text-center bg-white/10 hover:bg-white/20 text-white text-xs font-extrabold uppercase tracking-wider py-3 rounded-lg transition-colors cursor-pointer"
+                    >
+                      Validar Convênio
+                    </button>
+                  </div>
                 </div>
-              </div>
+              </PixelCard>
             </div>
           </div>
         </div>
